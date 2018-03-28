@@ -30,3 +30,9 @@
 
 # Debug files
 *.dSYM/
+/Cliente/NetBeansProjects/CARLOS/build/
+/Cliente/NetBeansProjects/CARLOS/dist/
+/Cliente/NetBeansProjects/Cliente/dist/
+/Cliente/NetBeansProjects/Cliente/build/
+/TestListas/build/
+/TestListas/dist/
