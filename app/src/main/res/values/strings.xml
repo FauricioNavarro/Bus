@@ -12,6 +12,7 @@
     <string name="btn_olvide_cont"><u>Olvidé mi contraseña</u></string>
     <string name="et_username">Usuario</string>
     <string name="et_password">Contraseña</string>
+    <string name="et_correo">Email</string>
     <string name="et_nombre">Nombre</string>
     <string name="btn_registro"><b>Registro</b></string>
     <!-- Strings del menu  -->
@@ -19,5 +20,9 @@
     <string name="txt_chofer">Choferes</string>
     <string name="txt_rutas">Rutas</string>
     <string name="txt_paradas">Paradas</string>
+    <string name="title_activity_recuperar_contra">RecuperarContra</string>
+    <!-- Strings recuperacion de contraseña  -->
+    <string name="txt_pregunta"><b>¿Has olvidado tu contrasña?</b></string>
+
 
 </resources>

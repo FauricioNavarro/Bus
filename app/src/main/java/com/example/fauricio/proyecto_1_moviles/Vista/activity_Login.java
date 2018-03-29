@@ -30,5 +30,7 @@ public class activity_Login extends AppCompatActivity {
     }
 
     public void consulta_contraseña(View view){
+        Intent intent = new Intent(getApplicationContext(),RecuperarPassword.class);
+        startActivity(intent);
     }
 }
