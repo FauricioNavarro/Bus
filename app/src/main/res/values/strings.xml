@@ -7,7 +7,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Pantalla de login  -->
-    <string name="btn_login">Ingresar</string>
-    <string name="btn_crear_cuenta">Crear una nueva cuenta</string>
-    <string name="btn_olvide_cont">Olvidé mi contraseña</string>
+    <string name="btn_login"><b>Ingresar</b></string>
+    <string name="btn_crear_cuenta"><u>Crear una nueva cuenta</u></string>
+    <string name="btn_olvide_cont"><u>Olvidé mi contraseña</u></string>
+    <string name="et_username">Usuario</string>
+    <string name="et_password">Contraseña</string>
+    <string name="et_nombre">Nombre</string>
+    <string name="btn_registro"><b>Registro</b></string>
+
 </resources>
