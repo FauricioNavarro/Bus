@@ -46,7 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textSize="18sp"
-        android:text="@string/btn_login"/>
+        android:text="@string/btn_login"
+        android:onClick="login"/>
 
     <Button
         android:id="@+id/bt_registro"
@@ -55,15 +56,17 @@
         android:layout_height="30dp"
         android:textSize="14sp"
         android:background="@android:color/transparent"
-        android:text="@string/btn_crear_cuenta" />
+        android:text="@string/btn_crear_cuenta"
+        android:onClick="registro"/>
 
     <Button
-        android:id="@+id/bt_nuevaContraseña"
+        android:id="@+id/bt_consultaContraseña"
         style="@style/AppTheme"
         android:layout_width="match_parent"
         android:background="@android:color/transparent"
         android:layout_height="30dp"
         android:textSize="14sp"
-        android:text="@string/btn_olvide_cont"/>
+        android:text="@string/btn_olvide_cont"
+        android:onClick="consulta_contraseña"/>
 
 </LinearLayout>

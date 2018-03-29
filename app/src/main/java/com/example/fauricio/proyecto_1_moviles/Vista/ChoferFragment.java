@@ -14,7 +14,7 @@ import com.example.fauricio.proyecto_1_moviles.R;
 /**
  */
 public class ChoferFragment extends Fragment {
-
+    private View rootview;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +23,8 @@ public class ChoferFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chofer, container, false);
+        rootview = inflater.inflate(R.layout.fragment_chofer,container,false);
+        return rootview;
     }
 
     @Override

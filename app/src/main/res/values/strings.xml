@@ -14,5 +14,10 @@
     <string name="et_password">Contraseña</string>
     <string name="et_nombre">Nombre</string>
     <string name="btn_registro"><b>Registro</b></string>
+    <!-- Strings del menu  -->
+    <string name="txt_empresa">Empresas</string>
+    <string name="txt_chofer">Choferes</string>
+    <string name="txt_rutas">Rutas</string>
+    <string name="txt_paradas">Paradas</string>
 
 </resources>
