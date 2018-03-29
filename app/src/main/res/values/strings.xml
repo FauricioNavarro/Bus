@@ -22,7 +22,9 @@
     <string name="txt_paradas">Paradas</string>
     <string name="title_activity_recuperar_contra">RecuperarContra</string>
     <!-- Strings recuperacion de contraseña  -->
-    <string name="txt_pregunta"><b>¿Has olvidado tu contrasña?</b></string>
-
+    <string name="txt_pregunta"><i><b>¿Has olvidado tu contrasña?</b></i></string>
+    <string name="txt_restablecer_contraseña">Si deseas restablecer la contraseña, introduce el nombre de
+    usuario y dirección de correo que utilizas para iniciar sesión.</string>
+    <string name="btn_recuperar"><b>Recuperar</b></string>
 
 </resources>

@@ -14,15 +14,18 @@
             android:label="@string/app_name" />
         <activity
             android:name=".Vista.activity_Login"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Vista.Registro" />
-        <activity android:name=".Vista.RecuperarPassword"></activity>
+        <activity android:name=".Vista.Registro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Vista.RecuperarPassword"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
