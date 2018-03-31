@@ -44,4 +44,13 @@ public class Chofer extends Usuario{
     public void setPlaca(String placa) {
         this.placa = placa;
     }
+
+    @Override
+    public String toString() {
+        return "Chofer{" +
+                "rating=" + rating +
+                ", empresa=" + empresa +
+                ", placa='" + placa + '\'' +
+                '}';
+    }
 }

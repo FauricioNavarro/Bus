@@ -38,4 +38,13 @@ public abstract class Usuario {
     public void setNivel(Nivel_usuario nivel) {
         this.nivel = nivel;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "ID_usuario=" + ID_usuario +
+                ", nombre='" + nombre + '\'' +
+                ", nivel=" + nivel +
+                '}';
+    }
 }

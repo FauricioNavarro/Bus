@@ -14,7 +14,7 @@ public class activity_Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity__login);
+        setContentView(R.layout.activity_login);
         usuario = findViewById(R.id.et_username);
         contraseña = findViewById(R.id.et_password);
     }
