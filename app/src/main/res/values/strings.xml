@@ -26,5 +26,7 @@
     <string name="txt_restablecer_contraseña">Si deseas restablecer la contraseña, introduce el nombre de
     usuario y dirección de correo que utilizas para iniciar sesión.</string>
     <string name="btn_recuperar"><b>Recuperar</b></string>
+    <string name="error_conexion">Ocurrió un error al conectarse.</string>
+    <string name="fallo_sign_in">Falló al intentar loguearse con Google</string>
 
 </resources>

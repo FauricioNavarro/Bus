@@ -37,7 +37,7 @@
         android:hint="@string/et_password"/>
 
     <Space
-        android:layout_width="1dp"
+        android:layout_width="match_parent"
         android:layout_height="10dp" />
 
     <Button
@@ -68,5 +68,17 @@
         android:textSize="14sp"
         android:text="@string/btn_olvide_cont"
         android:onClick="consulta_contraseña"/>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="10dp" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/bt_SignInGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="signIn"
+        />
 
 </LinearLayout>
