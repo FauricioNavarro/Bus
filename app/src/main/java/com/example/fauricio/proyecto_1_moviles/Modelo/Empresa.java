@@ -12,6 +12,9 @@ public class Empresa {
     private ArrayList<Ruta> rutas = new ArrayList<>();
     private ArrayList<Chofer> choferes = new ArrayList<>();
 
+    public Empresa() {
+    }
+
     public Empresa(int ID_empresa, String nombre, ArrayList<Ruta> rutas, ArrayList<Chofer> choferes) {
         this.ID_empresa = ID_empresa;
         this.nombre = nombre;
