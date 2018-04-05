@@ -47,21 +47,4 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/iv_editar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:background="@drawable/ic_mode_edit_black"/>
-
-    <Space
-        android:layout_width="12dp"
-        android:layout_height="1dp" />
-
-    <ImageView
-        android:id="@+id/iv_eliminar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:background="@drawable/ic_delete_black"/>
 </LinearLayout>

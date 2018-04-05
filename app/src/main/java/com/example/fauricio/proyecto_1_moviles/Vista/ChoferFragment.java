@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,10 +27,10 @@ import java.util.List;
  */
 public class ChoferFragment extends Fragment {
     private View rootview;
+    private FloatingActionButton nuevo_chofer;
     private ListView choferes;
     private listChoferAdapter adapter;
     private ArrayList<item> ArrayItem = null;
-    private ImageButton editar,eliminar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,16 @@ public class ChoferFragment extends Fragment {
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_chofer,container,false);
         choferes = rootview.findViewById(R.id.LV_choferes);
-        editar = rootview.findViewById(R.id.iv_editar);
+        nuevo_chofer = rootview.findViewById(R.id.FB_agregar);
         ArrayItem = new ArrayList<>();
+
+        nuevo_chofer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),agregar_choferActivity.class);
+                startActivity(intent);
+            }
+        });
 
         choferes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -52,6 +61,8 @@ public class ChoferFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
 
         cargarLista(rootview.getContext());
         return rootview;

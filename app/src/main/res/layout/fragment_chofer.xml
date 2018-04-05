@@ -5,6 +5,15 @@
     tools:context="com.example.fauricio.proyecto_1_moviles.Vista.ChoferFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/FB_agregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="18dp"
+        android:src="@drawable/ic_add_black_24dp" />
+
     <ListView
         android:id="@+id/LV_choferes"
         android:layout_width="match_parent"

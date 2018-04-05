@@ -30,7 +30,8 @@
         <activity
             android:name=".Vista.RecuperarPassword"
             android:screenOrientation="portrait" />
-        <activity android:name=".Vista.detalle_choferActivity"></activity>
+        <activity android:name=".Vista.detalle_choferActivity" />
+        <activity android:name=".Vista.agregar_choferActivity"></activity>
     </application>
 
 </manifest>
