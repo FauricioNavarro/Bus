@@ -13,33 +13,35 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
 
 public class activity_Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private TextView usuario,contraseña;
     private GoogleApiClient googleApiClient;
-    private SignInButton signInButton;
     public static final int CODIGO_SIGN_IN = 777;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
         setContentView(R.layout.activity_login);
-=======
-        setContentView(R.layout.activity__login);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
                 .build();
         googleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-        signInButton = findViewById(R.id.bt_SignInGoogle);
+        SignInButton signInButton = findViewById(R.id.bt_SignInGoogle);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signIn(view);
+            }
+        });
 
->>>>>>> 579826d8a0d758519446b68915e43ab7fe3d10fb
         usuario = findViewById(R.id.et_username);
         contraseña = findViewById(R.id.et_password);
     }
