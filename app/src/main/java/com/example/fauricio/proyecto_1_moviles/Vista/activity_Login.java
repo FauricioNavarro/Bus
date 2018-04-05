@@ -29,6 +29,8 @@ public class activity_Login extends AppCompatActivity implements GoogleApiClient
         setContentView(R.layout.activity_login);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
                 .build();
         googleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
@@ -38,7 +40,7 @@ public class activity_Login extends AppCompatActivity implements GoogleApiClient
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn(view);
+                signIn();
             }
         });
 
@@ -61,7 +63,7 @@ public class activity_Login extends AppCompatActivity implements GoogleApiClient
         startActivity(intent);
     }
 
-    public void signIn(View view){
+    public void signIn(){
         Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
         startActivityForResult(intent, CODIGO_SIGN_IN);
     }

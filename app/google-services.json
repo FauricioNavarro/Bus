@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "178308542744",
+    "firebase_url": "https://busurbansystem.firebaseio.com",
+    "project_id": "busurbansystem",
+    "storage_bucket": "busurbansystem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178308542744:android:e971fa473d3570b8",
+        "android_client_info": {
+          "package_name": "com.example.fauricio.proyecto_1_moviles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178308542744-5f9tve08mi4i27poqp2moe1k6r3hkicr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fauricio.proyecto_1_moviles",
+            "certificate_hash": "9ab359c85d887cf223dea2a7ed5029655cc84ec8"
+          }
+        },
+        {
+          "client_id": "178308542744-n74p9r07erj5oca7pvg61ng8d7p8q6vi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZn8gZ2ZzMk5kW7BOt7aNOqj2RxZUNzig"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178308542744-n74p9r07erj5oca7pvg61ng8d7p8q6vi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
