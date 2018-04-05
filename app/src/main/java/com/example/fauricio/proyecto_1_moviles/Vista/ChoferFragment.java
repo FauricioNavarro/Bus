@@ -1,16 +1,19 @@
 package com.example.fauricio.proyecto_1_moviles.Vista;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listChoferAdapter;
-import com.example.fauricio.proyecto_1_moviles.Modelo.Chofer;
-import com.example.fauricio.proyecto_1_moviles.Modelo.Empresa;
+import com.example.fauricio.proyecto_1_moviles.Modelo.*;
 import com.example.fauricio.proyecto_1_moviles.Modelo.Nivel_usuario;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.fauricio.proyecto_1_moviles.R;
@@ -25,7 +28,8 @@ public class ChoferFragment extends Fragment {
     private View rootview;
     private ListView choferes;
     private listChoferAdapter adapter;
-    private ArrayList<Chofer> ArrayItem = null;
+    private ArrayList<item> ArrayItem = null;
+    private ImageButton editar,eliminar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,16 +42,18 @@ public class ChoferFragment extends Fragment {
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_chofer,container,false);
         choferes = rootview.findViewById(R.id.LV_choferes);
+        editar = rootview.findViewById(R.id.iv_editar);
         ArrayItem = new ArrayList<>();
 
-        for(int i=0;i<5;i++){
-            String base = "item " + i;
-            Empresa e = new Empresa();
-            Chofer c = new Chofer(i,base,Nivel_usuario.ADMINISTRADOR, (short) i,e,base);
-            ArrayItem.add(c);
-        }
-        adapter = new listChoferAdapter(ArrayItem,rootview.getContext());
-        choferes.setAdapter(adapter);
+        choferes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(),detalle_choferActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cargarLista(rootview.getContext());
         return rootview;
     }
 
@@ -61,4 +67,12 @@ public class ChoferFragment extends Fragment {
         super.onDetach();
     }
 
+    public void cargarLista(Context context){
+        for(int i = 0 ; i<12;i++){
+            String msj = "Chofer"+String.valueOf(i);
+            ArrayItem.add(new item(msj,msj,msj));
+        }
+        adapter = new listChoferAdapter(ArrayItem, context);
+        choferes.setAdapter(adapter);
+    }
 }

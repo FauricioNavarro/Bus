@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fauricio.proyecto_1_moviles.Modelo.Chofer;
+import com.example.fauricio.proyecto_1_moviles.Modelo.*;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 import java.util.ArrayList;
@@ -18,11 +18,11 @@ import java.util.ArrayList;
  */
 
 public class listChoferAdapter extends BaseAdapter {
-    private ArrayList<Chofer> arrayItems;
+    private ArrayList<item> arrayItems;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public listChoferAdapter(ArrayList<Chofer> arrayItems, Context context) {
+    public listChoferAdapter(ArrayList<item> arrayItems, Context context) {
         this.arrayItems = arrayItems;
         this.context = context;
     }
@@ -51,10 +51,9 @@ public class listChoferAdapter extends BaseAdapter {
         TextView tv_contenido_1 = (TextView) vistaItem.findViewById(R.id.tv_contenido);
         TextView tv_contenido_2 = (TextView) vistaItem.findViewById(R.id.tv_contenido1);
         iv_imagen.setImageResource(R.drawable.driver_icon);
-        tv_titulo.setText(arrayItems.get(i).getNombre());
-        tv_contenido_1.setText(arrayItems.get(i).getPlaca());
-        tv_contenido_2.setText(arrayItems.get(i).getRating());
-
+        tv_titulo.setText(arrayItems.get(i).getTitulo());
+        tv_contenido_1.setText(arrayItems.get(i).getContenido1());
+        tv_contenido_2.setText(arrayItems.get(i).getGetContenido2());
 
         return vistaItem;
     }}
