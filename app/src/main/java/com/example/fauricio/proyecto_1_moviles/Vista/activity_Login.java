@@ -18,7 +18,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
 
-public class activity_Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class activity_Login extends AppCompatActivity {
     private TextView usuario,contraseña;
     private GoogleApiClient googleApiClient;
     public static final int CODIGO_SIGN_IN = 777;
@@ -33,7 +33,12 @@ public class activity_Login extends AppCompatActivity implements GoogleApiClient
                 .requestEmail()
                 .build();
         googleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
+                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+                        Toast.makeText(getApplicationContext(), R.string.error_conexion, Toast.LENGTH_LONG).show();
+                    }
+                })
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
         SignInButton signInButton = findViewById(R.id.bt_SignInGoogle);
@@ -74,17 +79,14 @@ public class activity_Login extends AppCompatActivity implements GoogleApiClient
 
         if (requestCode == CODIGO_SIGN_IN){
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
+            if (result.isSuccess()){
+                goMainScreen();
+            }else{
+                Toast.makeText(this, R.string.fallo_sign_in, Toast.LENGTH_LONG).show();
+            }
         }
     }
 
-    private void handleSignInResult(GoogleSignInResult result) {
-        if (result.isSuccess()){
-            goMainScreen();
-        }else{
-            Toast.makeText(this, R.string.fallo_sign_in, Toast.LENGTH_LONG).show();
-        }
-    }
 
     private void goMainScreen() {
         Intent intent = new Intent(this, MainActivity.class);
@@ -92,8 +94,4 @@ public class activity_Login extends AppCompatActivity implements GoogleApiClient
         startActivity(intent);
     }
 
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Toast.makeText(this, R.string.error_conexion, Toast.LENGTH_LONG).show();
-    }
 }
