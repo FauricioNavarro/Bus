@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Vista.MainActivity"
+            android:name=".Vista.admin.MainActivity"
             android:label="@string/app_name" />
         <activity
             android:name=".Vista.activity_Login"
@@ -30,8 +30,8 @@
         <activity
             android:name=".Vista.RecuperarPassword"
             android:screenOrientation="portrait" />
-        <activity android:name=".Vista.detalle_choferActivity" />
-        <activity android:name=".Vista.agregar_choferActivity"></activity>
+        <activity android:name=".Vista.admin.detalle_choferActivity" />
+        <activity android:name=".Vista.admin.agregar_choferActivity"></activity>
     </application>
 
 </manifest>

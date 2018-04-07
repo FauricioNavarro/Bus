@@ -1,4 +1,4 @@
-package com.example.fauricio.proyecto_1_moviles.Vista;
+package com.example.fauricio.proyecto_1_moviles.Vista.admin;
 
 import android.content.Context;
 import android.net.Uri;

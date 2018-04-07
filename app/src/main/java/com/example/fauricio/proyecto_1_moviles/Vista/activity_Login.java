@@ -9,14 +9,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fauricio.proyecto_1_moviles.R;
+import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.Scope;
 
 public class activity_Login extends AppCompatActivity {
     private TextView usuario,contraseña;
