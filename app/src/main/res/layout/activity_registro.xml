@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.fauricio.proyecto_1_moviles.Vista.Registro">
 
+
     <Space
         android:layout_width="1dp"
         android:layout_height="50dp" />
@@ -27,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
-        android:hint="@string/et_username"/>
+        android:hint="@string/et_nombre"/>
 
     <EditText
         android:id="@+id/et_correo"

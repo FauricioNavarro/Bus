@@ -13,25 +13,35 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Vista.admin.MainActivity"
-            android:label="@string/app_name" />
+            android:label="@string/title_menu" />
         <activity
             android:name=".Vista.activity_Login"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Vista.Registro"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Registro"/>
         <activity
             android:name=".Vista.RecuperarPassword"
-            android:screenOrientation="portrait" />
-        <activity android:name=".Vista.admin.detalle_choferActivity" />
-        <activity android:name=".Vista.admin.agregar_choferActivity"></activity>
+            android:screenOrientation="portrait"
+            android:label="@string/title_recuperar"/>
+        <activity android:name=".Vista.admin.detalle_choferActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".Vista.admin.agregar_choferActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_add_chofer"
+            ></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

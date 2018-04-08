@@ -3,9 +3,17 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_registro">Registro</string>
+    <string name="title_recuperar">Recuperar contraseña</string>
+    <string name="title_menu">Menú</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- CRUD text  -->
+    <string name="txt_agregar">Agregar</string>
+    <string name="txt_modificar">Modificar</string>
+
     <!-- Pantalla de login  -->
     <string name="btn_login"><b>Ingresar</b></string>
     <string name="btn_crear_cuenta"><u>Crear una nueva cuenta</u></string>
@@ -15,12 +23,14 @@
     <string name="et_correo">Email</string>
     <string name="et_nombre">Nombre</string>
     <string name="btn_registro"><b>Registro</b></string>
+
     <!-- Strings del menu  -->
     <string name="txt_empresa">Empresas</string>
     <string name="txt_chofer">Choferes</string>
     <string name="txt_rutas">Rutas</string>
     <string name="txt_paradas">Paradas</string>
     <string name="title_activity_recuperar_contra">RecuperarContra</string>
+
     <!-- Strings recuperacion de contraseña  -->
     <string name="txt_pregunta"><i><b>¿Has olvidado tu contrasña?</b></i></string>
     <string name="txt_restablecer_contraseña">Si deseas restablecer la contraseña, introduce el nombre de
@@ -28,5 +38,12 @@
     <string name="btn_recuperar"><b>Recuperar</b></string>
     <string name="error_conexion">Ocurrió un error al conectarse.</string>
     <string name="fallo_sign_in">Falló al intentar loguearse con Google</string>
+
+    <!-- Strings pantalla chofer  -->
+    <string name="title_add_chofer">Nuevo chofer</string>
+    <string name="txt_detalle_chofer">Información del chofer</string>
+    <string name="txt_placa">Placa</string>
+    <string name="txt_rating">Rating</string>
+    <string name="et_empresa">Empresa</string>
 
 </resources>
