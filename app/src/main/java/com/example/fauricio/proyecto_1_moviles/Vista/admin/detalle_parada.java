@@ -8,19 +8,18 @@ import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.fauricio.proyecto_1_moviles.R;
-import com.example.fauricio.proyecto_1_moviles.Vista.Registro;
 
-public class detalle_choferActivity extends AppCompatActivity {
+public class detalle_parada extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_chofer);
-        toolbar = findViewById(R.id.toolbar_chofer);
-        toolbar.setTitle(R.string.txt_detalle_chofer);
+        setContentView(R.layout.activity_detalle_parada);
+        toolbar = findViewById(R.id.toolbar_parada);
+        toolbar.setTitle(R.string.txt_detalle_parada);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlanco));
         setSupportActionBar(toolbar);
     }
@@ -41,7 +40,7 @@ public class detalle_choferActivity extends AppCompatActivity {
         Intent intent;
         switch (item.getItemId()) {
             case R.id.editar:
-                Toast.makeText(getApplicationContext(), "EDITAR", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;

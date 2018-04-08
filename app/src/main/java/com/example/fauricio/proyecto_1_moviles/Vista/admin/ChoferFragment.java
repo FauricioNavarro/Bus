@@ -14,8 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.fauricio.proyecto_1_moviles.R;
-import com.example.fauricio.proyecto_1_moviles.Vista.admin.agregar_choferActivity;
-import com.example.fauricio.proyecto_1_moviles.Vista.admin.detalle_choferActivity;
 
 import java.util.ArrayList;
 
@@ -54,7 +52,7 @@ public class ChoferFragment extends Fragment {
         choferes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(),detalle_choferActivity.class);
+                Intent intent = new Intent(getContext(),detalle_chofer.class);
                 startActivity(intent);
             }
         });

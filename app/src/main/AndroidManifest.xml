@@ -33,7 +33,7 @@
             android:label="@string/title_recuperar"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Vista.admin.detalle_choferActivity"
+            android:name=".Vista.admin.detalle_chofer"
             android:parentActivityName=".Vista.admin.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -56,8 +56,23 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".Vista.chofer.menu_chofer"
-            android:label="@string/title_activity_menu_chofer"></activity>
+            android:name=".Vista.admin.detalle_ruta"
+            android:parentActivityName=".Vista.admin.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name=".Vista.admin.agregar_ruta"
+            android:label="@string/title_add_ruta"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Vista.admin.agregar_parada"
+            android:screenOrientation="portrait"
+            android:label="@string/title_add_parada"/>
+
+        <activity android:name=".Vista.admin.detalle_parada"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>

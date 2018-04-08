@@ -47,8 +47,21 @@
     <string name="et_empresa">Empresa</string>
 
     <!-- Strings pantalla empresa  -->
-    <string name="title_add_empresa">Nuevo empresa</string>
+    <string name="title_add_empresa">Nueva empresa</string>
     <string name="txt_detalle_empresa">Información de la empresa</string>
     <string name="txt_descp">Descripción</string>
+
+    <!-- Strings pantalla ruta  -->
+    <string name="title_add_ruta">Nueva ruta</string>
+    <string name="txt_detalle_ruta">Información de la ruta</string>
+    <string name="txt_inicio">Lugar inicial</string>
+    <string name="txt_final">Lugar final</string>
+    <string name="txt_costo">Costo</string>
+
+    <!-- Strings pantalla parada  -->
+    <string name="title_add_parada">Nueva parada</string>
+    <string name="txt_detalle_parada">Información de la parada</string>
+
     <string name="title_activity_menu_chofer">menu_chofer</string>
+    <string name="title_activity_agregar_ruta">agregar_ruta</string>
 </resources>

@@ -72,7 +72,7 @@ public class EmpresaFragment extends Fragment {
     public void cargarLista(Context context){
         for(int i = 0 ; i<12;i++){
             String msj = "Empresa"+String.valueOf(i);
-            ArrayItem.add(new Empresa(i,msj,msj));
+            ArrayItem.add(new Empresa(i,msj,"Descripción"));
         }
         adapter = new listEmpresaAdapter(ArrayItem, context);
         empresas.setAdapter(adapter);

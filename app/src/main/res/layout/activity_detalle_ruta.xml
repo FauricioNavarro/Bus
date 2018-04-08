@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.fauricio.proyecto_1_moviles.Vista.admin.detalle_chofer">
+    tools:context="com.example.fauricio.proyecto_1_moviles.Vista.admin.detalle_ruta">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_chofer"
+        android:id="@+id/toolbar_ruta"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -22,6 +22,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center_vertical">
+
         <EditText
             android:id="@+id/et_nombre"
             android:layout_width="match_parent"
@@ -31,47 +32,34 @@
             android:textAlignment="center" />
 
         <EditText
-            android:id="@+id/et_placa"
+            android:id="@+id/et_inicio"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textAlignment="center"
-            android:hint="@string/txt_placa"/>
+            android:hint="@string/txt_inicio"/>
 
         <EditText
-            android:id="@+id/et_rating"
+            android:id="@+id/et_final"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textAlignment="center"
             android:inputType="number"
-            android:hint="@string/txt_rating"/>
+            android:hint="@string/txt_final"/>
+
+        <EditText
+            android:id="@+id/et_costo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:hint="@string/txt_costo"/>
 
         <EditText
             android:id="@+id/et_empresa"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textAlignment="center"
-            android:inputType="number"
             android:hint="@string/et_empresa"/>
-
-        <EditText
-            android:id="@+id/et_correo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textAlignment="center"
-            android:hint="@string/et_correo"/>
-
-        <EditText
-            android:id="@+id/et_username"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textAlignment="center"
-            android:hint="@string/et_username"/>
-
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textAlignment="center"
-            android:hint="@string/et_password"/>
     </LinearLayout>
+
 </LinearLayout>
