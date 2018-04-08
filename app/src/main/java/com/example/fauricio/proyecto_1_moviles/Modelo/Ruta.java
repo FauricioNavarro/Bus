@@ -11,15 +11,6 @@ public class Ruta {
     private String Inicio;
     private String Final;
     private float Costo;
-    private ArrayList<Parada> Paradas = new ArrayList<>();
-
-    public Ruta(int ID_ruta, String inicio, String aFinal, float costo, ArrayList<Parada> paradas) {
-        this.ID_ruta = ID_ruta;
-        Inicio = inicio;
-        Final = aFinal;
-        Costo = costo;
-        Paradas = paradas;
-    }
 
     public int getID_ruta() {
         return ID_ruta;
@@ -53,22 +44,25 @@ public class Ruta {
         Costo = costo;
     }
 
-    public ArrayList<Parada> getParadas() {
-        return Paradas;
+    public String getEmpresa() {
+        return Empresa;
     }
 
-    public void setParadas(ArrayList<Parada> paradas) {
-        Paradas = paradas;
+    public void setEmpresa(String empresa) {
+        Empresa = empresa;
     }
 
-    @Override
-    public String toString() {
-        return "Ruta{" +
-                "ID_ruta=" + ID_ruta +
-                ", Inicio='" + Inicio + '\'' +
-                ", Final='" + Final + '\'' +
-                ", Costo=" + Costo +
-                ", Paradas=" + Paradas +
-                '}';
+    private String Empresa;
+
+    public Ruta(int ID_ruta, String inicio, String aFinal, float costo, String empresa) {
+        this.ID_ruta = ID_ruta;
+        Inicio = inicio;
+        Final = aFinal;
+        Costo = costo;
+        Empresa = empresa;
     }
+
+
+
+
 }

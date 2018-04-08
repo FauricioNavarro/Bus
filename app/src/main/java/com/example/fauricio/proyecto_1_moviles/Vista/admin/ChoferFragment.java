@@ -58,9 +58,6 @@ public class ChoferFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
-
         cargarLista(rootview.getContext());
         return rootview;
     }

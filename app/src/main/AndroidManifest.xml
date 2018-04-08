@@ -20,28 +20,44 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Vista.Registro"
-            android:screenOrientation="portrait"
-            android:label="Registro"/>
+            android:label="Registro"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Vista.RecuperarPassword"
+            android:label="@string/title_recuperar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vista.admin.detalle_choferActivity"
+            android:parentActivityName=".Vista.admin.MainActivity"
             android:screenOrientation="portrait"
-            android:label="@string/title_recuperar"/>
-        <activity android:name=".Vista.admin.detalle_choferActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Vista.admin.agregar_choferActivity"
-            android:screenOrientation="portrait"
             android:label="@string/title_add_chofer"
-            ></activity>
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".Vista.admin.agregar_empresa"
+            android:label="@string/title_add_empresa"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vista.admin.detalle_empresa"
+            android:parentActivityName=".Vista.admin.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Vista.chofer.menu_chofer"
+            android:label="@string/title_activity_menu_chofer"></activity>
     </application>
 
 </manifest>

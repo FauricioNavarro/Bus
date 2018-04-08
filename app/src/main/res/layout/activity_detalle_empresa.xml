@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.fauricio.proyecto_1_moviles.Vista.admin.detalle_empresa">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_empresa"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    </android.support.v7.widget.Toolbar>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:id="@+id/et_nombre_empresa"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:hint="@string/et_nombre"/>
+
+    <EditText
+        android:id="@+id/et_detalle_empresa"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textAlignment="center"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="@string/txt_descp"/>
+
+</LinearLayout>

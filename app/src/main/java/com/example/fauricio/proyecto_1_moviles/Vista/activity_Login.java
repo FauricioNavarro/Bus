@@ -9,7 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fauricio.proyecto_1_moviles.R;
-import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
+import com.example.fauricio.proyecto_1_moviles.Vista.admin.*;
+import com.example.fauricio.proyecto_1_moviles.Vista.chofer.*;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;

@@ -9,16 +9,40 @@ import java.util.ArrayList;
 public class Empresa {
     private int ID_empresa;
     private String nombre;
-    private ArrayList<Ruta> rutas = new ArrayList<>();
-    private ArrayList<Chofer> choferes = new ArrayList<>();
+    private String descripcion;
+
+    public int getID_empresa() {
+        return ID_empresa;
+    }
+
+    public void setID_empresa(int ID_empresa) {
+        this.ID_empresa = ID_empresa;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
     public Empresa() {
     }
 
-    public Empresa(int ID_empresa, String nombre, ArrayList<Ruta> rutas, ArrayList<Chofer> choferes) {
+    public Empresa(int ID_empresa, String nombre, String descripcion) {
         this.ID_empresa = ID_empresa;
         this.nombre = nombre;
-        this.rutas = rutas;
-        this.choferes = choferes;
+        this.descripcion = descripcion;
     }
+
+
 }

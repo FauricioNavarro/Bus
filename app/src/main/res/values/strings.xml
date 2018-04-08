@@ -46,4 +46,9 @@
     <string name="txt_rating">Rating</string>
     <string name="et_empresa">Empresa</string>
 
+    <!-- Strings pantalla empresa  -->
+    <string name="title_add_empresa">Nuevo empresa</string>
+    <string name="txt_detalle_empresa">Información de la empresa</string>
+    <string name="txt_descp">Descripción</string>
+    <string name="title_activity_menu_chofer">menu_chofer</string>
 </resources>
