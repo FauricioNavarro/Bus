@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Proyecto_1_moviles</string>
+    <string name="app_name">Bus</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -56,11 +56,14 @@
     <string name="txt_detalle_ruta">Información de la ruta</string>
     <string name="txt_inicio">Lugar inicial</string>
     <string name="txt_final">Lugar final</string>
-    <string name="txt_costo">Costo</string>
+    <string name="txt_costo">Costo pasaje</string>
+    <string name="txt_costo_aux">Costo pasaje: </string>
 
     <!-- Strings pantalla parada  -->
     <string name="title_add_parada">Nueva parada</string>
     <string name="txt_detalle_parada">Información de la parada</string>
+
+    <!-- Strings acceso a ubicacion  -->
 
     <string name="title_activity_menu_chofer">menu_chofer</string>
     <string name="title_activity_agregar_ruta">agregar_ruta</string>

@@ -13,7 +13,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:background="@color/colorPrimaryDark"/>
+        android:background="@drawable/logo"/>
 
     <Space
         android:layout_width="1dp"

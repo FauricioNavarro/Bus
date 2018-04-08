@@ -60,19 +60,20 @@
             android:parentActivityName=".Vista.admin.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
         <activity
             android:name=".Vista.admin.agregar_ruta"
             android:label="@string/title_add_ruta"
             android:screenOrientation="portrait" />
-
-        <activity android:name=".Vista.admin.agregar_parada"
+        <activity
+            android:name=".Vista.admin.agregar_parada"
+            android:label="@string/title_add_parada"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vista.admin.detalle_parada"
             android:screenOrientation="portrait"
-            android:label="@string/title_add_parada"/>
-
-        <activity android:name=".Vista.admin.detalle_parada"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Vista.chofer.Main_chofer" />
+        <activity android:name=".Vista.chofer.mapa_chofer"></activity>
     </application>
 
 </manifest>

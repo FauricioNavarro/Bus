@@ -49,17 +49,19 @@
             android:layout_toRightOf="@id/tv_contenido"/>
 
         <TextView
-            android:layout_toLeftOf="@id/tv_contenido2"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_costo"
             android:layout_below="@+id/tv_contenido"
-            android:layout_height="wrap_content" />
+            android:text="@string/txt_costo_aux" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_contenido2"
+            android:layout_toRightOf="@id/tv_costo"
             android:layout_below="@+id/tv_contenido"
-            android:text="Contenido"/>
+            android:text=" Contenido"/>
 
     </RelativeLayout>
 
