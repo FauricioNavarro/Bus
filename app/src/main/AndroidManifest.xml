@@ -50,16 +50,19 @@
             android:name=".Vista.admin.agregar_empresa"
             android:label="@string/title_add_empresa"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".Vista.admin.detalle_empresa"
             android:parentActivityName=".Vista.admin.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity
             android:name=".Vista.admin.detalle_ruta"
             android:parentActivityName=".Vista.admin.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity
             android:name=".Vista.admin.agregar_ruta"
             android:label="@string/title_add_ruta"
@@ -76,7 +79,8 @@
         <activity android:name=".Vista.chofer.mapa_chofer" />
         <activity
             android:name=".Vista.cliente.Main_cliente"
-            android:label="@string/title_activity_main_cliente"></activity>
+            android:label="@string/title_activity_main_cliente" />
+        <activity android:name=".Vista.acesso_ubicacion"></activity>
     </application>
 
 </manifest>

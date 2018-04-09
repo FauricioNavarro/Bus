@@ -64,6 +64,12 @@
     <string name="txt_detalle_parada">Información de la parada</string>
 
     <!-- Strings acceso a ubicacion  -->
+    <string name="title_acceso_ubicacion">Acceso a ubicación</string>
+    <string name="txt_acesso_ubicacion"><i><b>La aplicación requiere acceso a tu ubicación</b></i></string>
+    <string name="txt_acceso_ubicacion_1">Para disfrutar todos los servicios que ofrese el
+        app, enciende el GPS y da acceso a tu ubicación
+    </string>
+    <string name="btn_encender_gps">Encender GPS</string>
 
     <string name="title_activity_menu_chofer">menu_chofer</string>
     <string name="title_activity_agregar_ruta">agregar_ruta</string>
