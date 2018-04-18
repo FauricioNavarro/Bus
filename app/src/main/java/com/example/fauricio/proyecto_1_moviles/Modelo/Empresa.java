@@ -1,7 +1,5 @@
 package com.example.fauricio.proyecto_1_moviles.Modelo;
 
-import java.util.ArrayList;
-
 /**
  * Created by fauricio on 29/03/18.
  */
@@ -35,7 +33,7 @@ public class Empresa {
         this.descripcion = descripcion;
     }
 
-    public Empresa() {
+    public Empresa(int i, Object nombre, Object descripcion) {
     }
 
     public Empresa(int ID_empresa, String nombre, String descripcion) {

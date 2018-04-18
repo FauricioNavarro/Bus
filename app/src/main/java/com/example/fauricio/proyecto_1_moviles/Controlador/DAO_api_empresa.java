@@ -17,7 +17,7 @@ public class DAO_api_empresa extends AsyncTask<String, Void, String> {
         switch (tipoEjecucion){
             case "get":{
                 try {
-                    HttpResponse<String> response = Unirest.get("https://bus-api-moviles.herokuapp.com/api/empresa/")
+                    HttpResponse<String> response = Unirest.get(url)
                             .header("content-type", "application/json")
                             .header("cache-control", "no-cache")
                             .header("postman-token", "c7b17c21-4bd4-2279-4d50-88e32cd40e6b")
