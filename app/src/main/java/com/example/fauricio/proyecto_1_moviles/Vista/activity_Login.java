@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.DAO_api;
 import com.example.fauricio.proyecto_1_moviles.R;
 import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
 import com.example.fauricio.proyecto_1_moviles.Vista.chofer.Main_chofer;
@@ -20,8 +19,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.util.concurrent.ExecutionException;
-
 public class activity_Login extends AppCompatActivity {
     private EditText usuario,contraseña;
     private GoogleApiClient googleApiClient;
@@ -32,7 +29,18 @@ public class activity_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //Asi funciona
-        new DAO_api().execute();
+        /*DAO_api n = new DAO_api();
+
+        try {
+            String resultado = n.execute().get();
+            Toast.makeText(getApplicationContext(),resultado, Toast.LENGTH_LONG).show();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        */
+
         usuario = findViewById(R.id.et_username_login);
         contraseña = findViewById(R.id.et_password_login);
 

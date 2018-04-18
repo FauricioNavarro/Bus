@@ -34,7 +34,8 @@
         android:layout_height="50dp"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:hint="@string/txt_agregar"/>
+        android:hint="@string/txt_agregar"
+        android:onClick="agregar_empresa"/>
 
 
 
