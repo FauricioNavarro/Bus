@@ -1,17 +1,16 @@
 package com.example.fauricio.proyecto_1_moviles.Vista;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fauricio.proyecto_1_moviles.Controlador.DAO_api;
 import com.example.fauricio.proyecto_1_moviles.R;
-import com.example.fauricio.proyecto_1_moviles.Vista.admin.*;
+import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
 import com.example.fauricio.proyecto_1_moviles.Vista.chofer.Main_chofer;
 import com.example.fauricio.proyecto_1_moviles.Vista.cliente.Main_cliente;
 import com.google.android.gms.auth.api.Auth;
@@ -20,6 +19,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.util.concurrent.ExecutionException;
 
 public class activity_Login extends AppCompatActivity {
     private EditText usuario,contraseña;
@@ -55,6 +56,15 @@ public class activity_Login extends AppCompatActivity {
         });
 
 
+        DAO_api a = new DAO_api();
+        try {
+            a.execute().get();
+            //Toast.makeText(getApplicationContext(), (String)request,Toast.LENGTH_LONG).show();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
     }
 
