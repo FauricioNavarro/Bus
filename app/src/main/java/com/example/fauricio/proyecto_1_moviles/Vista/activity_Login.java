@@ -31,6 +31,8 @@ public class activity_Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //Asi funciona
+        new DAO_api().execute();
         usuario = findViewById(R.id.et_username_login);
         contraseña = findViewById(R.id.et_password_login);
 
@@ -56,15 +58,6 @@ public class activity_Login extends AppCompatActivity {
         });
 
 
-        DAO_api a = new DAO_api();
-        try {
-            a.execute().get();
-            //Toast.makeText(getApplicationContext(), (String)request,Toast.LENGTH_LONG).show();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
 
     }
 
