@@ -6,4 +6,47 @@
     android:layout_height="match_parent"
     tools:context="com.example.fauricio.proyecto_1_moviles.Vista.chofer.mapa_chofer">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="78dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/empezar"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Empezar" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/terminar"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Terminar" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_Estado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="175dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="La ruta no ha empezado" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
