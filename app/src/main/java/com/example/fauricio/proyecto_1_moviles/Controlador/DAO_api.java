@@ -1,7 +1,6 @@
 package com.example.fauricio.proyecto_1_moviles.Controlador;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
