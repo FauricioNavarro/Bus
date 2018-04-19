@@ -71,7 +71,12 @@ public class activity_Login extends AppCompatActivity {
     public void login(View view){
         String user = usuario.getText().toString();
         String pass = contraseña.getText().toString();
-        gestor.getInstance().login(user,pass);
+        int login_auth = gestor.getInstance().login(user,pass);
+        if(login_auth==1){
+            Toast.makeText(getApplicationContext(),"exito",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getApplicationContext(),"no hay exito",Toast.LENGTH_SHORT).show();
+        }
         /*
         Intent intent;
         if(user.equals("")){

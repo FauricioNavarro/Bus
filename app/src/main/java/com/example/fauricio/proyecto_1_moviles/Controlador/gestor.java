@@ -1,5 +1,7 @@
 package com.example.fauricio.proyecto_1_moviles.Controlador;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,8 +54,14 @@ public class gestor {
 
     public int login(String email,String password){
         try {
-            String result = new DAO_api_empresa().execute("login",email,password).get();
-            return 0;
+            DAO_api e = new DAO_api();
+            String result = e.execute("login",email,password).get();
+            Log.i("login auth",result);
+            if (!result.equals("")){
+                return 1;
+            }else{
+                return 0;
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
