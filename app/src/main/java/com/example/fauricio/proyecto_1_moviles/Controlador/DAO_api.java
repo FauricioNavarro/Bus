@@ -1,6 +1,7 @@
 package com.example.fauricio.proyecto_1_moviles.Controlador;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
@@ -58,30 +59,29 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                             .header("postman-token", "9285d672-f19a-0f5d-92d4-b6de9bf02303")
                             .body(String.valueOf(login))
                             .asString();
-                    return response.toString();
-                } catch (UnirestException e) {
+                        JSONObject json1 = new JSONObject(response.getBody().toString());
+                        String Token = (String) json1.get("token");
+                        HttpResponse<String> response1 = Unirest.get("https://bus-api-moviles.herokuapp.com/api/user/view")
+                                .header("content-type", "application/json")
+                                .header("authorization", "JWT "+Token)
+                                .header("cache-control", "no-cache")
+                                .asString();
+                        JSONObject json2 = new JSONObject(response1.getBody().toString());
+                        //GUARDAR ESTE ID EN SHARED PREFFERENCES
+                        int ID = json2.getInt("id");
+                        HttpResponse<String> finalresponse = Unirest.get("https://bus-api-moviles.herokuapp.com/api/users/"+String.valueOf(ID)+"/")
+                            .header("cache-control", "no-cache")
+                            .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
+                            .asString();
+                        return finalresponse.getBody().toString();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (UnirestException e) {
                     e.printStackTrace();
                 }
+
             }break;
         }
-        /*
-        try {
-            String resultado;
-            HttpResponse<String> response = Unirest.get("https://bus-api-moviles.herokuapp.com/api/empresa/")
-                    .header("content-type", "application/json")
-                    .header("cache-control", "no-cache")
-                    .header("postman-token", "7abae682-b744-fc07-c986-06eeb5558724")
-                    //.body("{\n\t\"nombre\":\"MAMENDEZ COMPANY\",\n\t\"descripcion\":\"Compañia de buses\"\n}")
-                    .asString();
-            resultado =response.getBody().toString();
-            Log.i("----- Antes de log","----- Antes de log---");
-            Log.i("mensaje",resultado);
-            return resultado;
-
-
-        }  catch (UnirestException e) {
-            e.printStackTrace();
-        }*/
         return null;
     }
 }

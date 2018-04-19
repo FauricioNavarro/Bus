@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.fauricio.proyecto_1_moviles.Controlador.DAO_api;
 import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.R;
 import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
@@ -27,9 +29,11 @@ public class activity_Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //Asi funciona
-        /*DAO_api n = new DAO_api();
 
+        // Solo Cambiar Datos :)
+        new DAO_api().execute("login","juan_jop96@hotmail.com","Bases2018");
+        //Asi funciona
+        /*
         try {
             String resultado = n.execute().get();
             Toast.makeText(getApplicationContext(),resultado, Toast.LENGTH_LONG).show();
