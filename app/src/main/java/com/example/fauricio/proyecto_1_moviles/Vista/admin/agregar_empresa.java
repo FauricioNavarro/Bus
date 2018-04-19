@@ -27,11 +27,19 @@ public class agregar_empresa extends AppCompatActivity {
             String result = gestor.getInstance().registrar_empresa(nomb_aux,des_aux);
             if(result=="1"){
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
+                Limpiar();
             }else{
                 Toast.makeText(getApplicationContext(),"Error al realizar registro", Toast.LENGTH_LONG).show();
+                Limpiar();
             }
         }else{
             Toast.makeText(getApplicationContext(),"Error al realizar registro", Toast.LENGTH_LONG).show();
+            Limpiar();
         }
+    }
+
+    public void Limpiar(){
+        nombre.setText("");
+        des.setText("");
     }
 }

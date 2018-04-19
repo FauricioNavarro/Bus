@@ -43,7 +43,12 @@
         <activity
             android:name=".Vista.admin.agregar_choferActivity"
             android:label="@string/title_add_chofer"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Vista.admin.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Vista.admin.MainActivity" />
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
@@ -52,7 +57,12 @@
         <activity
             android:name=".Vista.admin.agregar_empresa"
             android:label="@string/title_add_empresa"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Vista.admin.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Vista.admin.MainActivity" />
+        </activity>
 
         <activity
             android:name=".Vista.admin.detalle_empresa"
@@ -69,7 +79,13 @@
         <activity
             android:name=".Vista.admin.agregar_ruta"
             android:label="@string/title_add_ruta"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Vista.admin.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Vista.admin.MainActivity" />
+        </activity>
+
         <activity
             android:name=".Vista.admin.agregar_parada"
             android:label="@string/title_add_parada"

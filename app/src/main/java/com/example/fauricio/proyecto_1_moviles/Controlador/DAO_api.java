@@ -43,6 +43,26 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                     e.printStackTrace();
                 }
             }break;
+            case "login":{
+                try {
+                    JSONObject login = new JSONObject();
+                    try {
+                        login.put("email", params[1]);
+                        login.put("password", params[2]);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    HttpResponse<String> response = Unirest.post("https://bus-api-moviles.herokuapp.com/api/user/login/")
+                            .header("content-type", "application/json")
+                            .header("cache-control", "no-cache")
+                            .header("postman-token", "9285d672-f19a-0f5d-92d4-b6de9bf02303")
+                            .body(String.valueOf(login))
+                            .asString();
+                    return response.toString();
+                } catch (UnirestException e) {
+                    e.printStackTrace();
+                }
+            }break;
         }
         /*
         try {
