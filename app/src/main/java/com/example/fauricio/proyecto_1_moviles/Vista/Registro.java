@@ -28,7 +28,7 @@ public class Registro extends AppCompatActivity {
         String apellido_aux = apellido.getText().toString();
         if(!user_aux.equals("") && !pass_aux.equals("") && !nomb_aux.equals("") && !apellido_aux.equals("")){
             String result = gestor.getInstance().registrar(user_aux,pass_aux,nomb_aux,apellido_aux);
-            if(result!=null){
+            if(result.equals("1")){
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
                 Limpiar();
             }else{

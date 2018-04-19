@@ -10,9 +10,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listChoferAdapter;
 import com.example.fauricio.proyecto_1_moviles.Modelo.item;
 import com.example.fauricio.proyecto_1_moviles.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -61,11 +66,38 @@ public class ChoferFragment extends Fragment {
     }
 
     public void cargarLista(Context context){
-        for(int i = 0 ; i<12;i++){
-            String msj = "Chofer"+String.valueOf(i);
-            ArrayItem.add(new item(msj,msj,msj));
+
+        String obj = gestor.getInstance().getUsers();
+        try {
+            JSONArray json_rutas = new JSONArray(obj);
+            for(int i=0;i<json_rutas.length();i++){
+                JSONObject object = (JSONObject) json_rutas.getJSONObject(i);
+                android.util.Log.d("CHOFER FLAG",object.getString("chofer"));
+
+                if(!object.getString("chofer").equals("null")){
+                    ArrayItem.add(new item(object.getString("id"),object.getString("first_name"),object.getString("last_name")));
+                }
+                adapter = new listChoferAdapter(ArrayItem, context);
+                choferes.setAdapter(adapter);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        adapter = new listChoferAdapter(ArrayItem, context);
-        choferes.setAdapter(adapter);
+
+        /*
+        try {
+            JSONArray json_rutas = obj.getJSONArray("objects");
+            for(int i=0;i<json_rutas.length();i++){
+                JSONObject object = (JSONObject) json_rutas.getJSONObject(i);
+                if(!object.getString("chofer").equals("")){
+                    ArrayItem.add(new item(object.getString("id"),object.getString("first_name"),object.getString("last_name")));
+                }
+                adapter = new listChoferAdapter(ArrayItem, context);
+                choferes.setAdapter(adapter);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        */
     }
 }

@@ -50,7 +50,7 @@ public class DAO_api_parada extends AsyncTask<String,Void,String> {
                     e.printStackTrace();
                 }
             }break;
-            case "get_ruta":{
+            case "get_parada":{
                 try {
                     HttpResponse<String> response = Unirest.get(url+params[1]+"/")
                             .header("content-type", "application/json")

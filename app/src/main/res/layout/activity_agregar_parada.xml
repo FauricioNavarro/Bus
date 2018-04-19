@@ -16,6 +16,22 @@
         android:hint="@string/et_nombre"
         android:textAlignment="center" />
 
+    <EditText
+        android:id="@+id/et_latitud"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:fontFamily="@font/roboto"
+        android:hint="Latitud"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/et_longitud"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:fontFamily="@font/roboto"
+        android:hint="Longitud"
+        android:textAlignment="center"/>
+
     <Space
         android:layout_width="1dp"
         android:layout_height="30dp" />
@@ -26,6 +42,7 @@
         android:layout_height="50dp"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:hint="@string/txt_agregar"/>
+        android:hint="@string/txt_agregar"
+        android:onClick="agregar_parada"/>
 
 </LinearLayout>

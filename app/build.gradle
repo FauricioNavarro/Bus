@@ -19,7 +19,7 @@ android {
 }
 
 repositories {
-    maven{
+    maven {
         url 'https://raw.github.com/zeeshanejaz/unirest-android/mvn-repo'
     }
 }
@@ -40,4 +40,3 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:11.6.0'
 }
 apply plugin: 'com.google.gms.google-services'
-

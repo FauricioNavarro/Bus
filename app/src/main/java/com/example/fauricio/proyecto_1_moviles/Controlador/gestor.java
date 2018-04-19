@@ -12,7 +12,8 @@ public class gestor {
     private JSONObject lista_empresa;
     private JSONObject lista_ruta;
     private JSONObject lista_parada;
-    private JSONObject lista_user;
+    private String users;
+    private int id_user;
 
     public static gestor getInstance() {
         return ourInstance;
@@ -26,6 +27,8 @@ public class gestor {
             lista_ruta = new JSONObject(request_ruta);
             String request_parada = new DAO_api_parada().execute("get").get();
             lista_parada = new JSONObject(request_parada);
+            users = new DAO_api_usuarios().execute().get();
+            //lista_user = new JSONObject(request_user);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -38,7 +41,10 @@ public class gestor {
     public String registrar(String email,String password,String nombre,String apellido){
         try {
             String result = new DAO_api().execute("post",email,password,nombre,apellido).get();
-            return result;
+            if(result!=null){
+                return "1";
+            }
+            return null;
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -51,19 +57,22 @@ public class gestor {
         try {
             DAO_api e = new DAO_api();
             String result = e.execute("login", email, password).get();
-            JSONObject user = new JSONObject(result);
-            String admin = user.getString("is_admin");
-            String chofer = user.getString("chofer");
-            Log.i("login auth", result);
-            if (admin.equals("true")) {
-                return 1;
-            } else {
-                if (!chofer.equals("")) {
-                    return 2;
+            if(result!=null){
+                JSONObject user = new JSONObject(result);
+                String admin = user.getString("is_admin");
+                String chofer = user.getString("chofer");
+                Log.i("login auth", result);
+                if (admin.equals("true")) {
+                    return 1;
                 } else {
-                    return 3;
+                    if (!chofer.equals("null")) {
+                        return 2;
+                    } else {
+                        return 3;
+                    }
                 }
             }
+            return 0;
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -82,12 +91,20 @@ public class gestor {
         return lista_ruta;
     }
 
-    public JSONObject getLista_user() {
-        return lista_user;
-    }
-
     public JSONObject getLista_parada() {
         return lista_parada;
+    }
+
+    public String getUsers() {
+        return users;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
     // ========================= Empresa ==================================
