@@ -11,6 +11,7 @@ public class gestor {
     private static final gestor ourInstance = new gestor();
     private JSONObject lista_empresa;
     private JSONObject lista_ruta;
+    private JSONObject lista_parada;
     private JSONObject lista_user;
 
     public static gestor getInstance() {
@@ -23,6 +24,8 @@ public class gestor {
             lista_empresa = new JSONObject(request_empresa);
             String request_ruta = new DAO_api_ruta().execute("get").get();
             lista_ruta = new JSONObject(request_ruta);
+            String request_parada = new DAO_api_parada().execute("get").get();
+            lista_parada = new JSONObject(request_parada);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -83,16 +86,8 @@ public class gestor {
         return lista_user;
     }
 
-    public void setLista_empresa(JSONObject lista_empresa) {
-        this.lista_empresa = lista_empresa;
-    }
-
-    public void setLista_ruta(JSONObject lista_ruta) {
-        this.lista_ruta = lista_ruta;
-    }
-
-    public void setLista_user(JSONObject lista_user) {
-        this.lista_user = lista_user;
+    public JSONObject getLista_parada() {
+        return lista_parada;
     }
 
     // ========================= Empresa ==================================
@@ -178,6 +173,109 @@ public class gestor {
     public String registrar_ruta(String nombre,String incio,String fin,String latitud,String longitud,String costo){
         try {
             String result = new DAO_api_ruta().execute("post",nombre,costo,incio,fin,latitud,longitud).get();
+            return result;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String get_ruta(String id){
+        DAO_api_ruta e = new DAO_api_ruta();
+        try {
+            String request = e.execute("get_ruta",id).get();
+            return request;
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        } catch (ExecutionException e1) {
+            e1.printStackTrace();
+        }
+        return "";
+    }
+
+    public String delete_ruta(String id){
+        DAO_api_ruta e = new DAO_api_ruta();
+        try {
+            String request = e.execute("delete",id).get();
+            return request;
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        } catch (ExecutionException e1) {
+            e1.printStackTrace();
+        }
+        return "";
+    }
+
+    public String put_ruta(String id,String nombre,String costo,String incio,String fin,String latitud,String longitud){
+        try {
+            String result = new DAO_api_ruta().execute("put",id,nombre,costo,incio,fin,latitud,longitud).get();
+            return result;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // ========================= Rutas ==================================
+
+    public void actualizar_parada(){
+        try {
+            String request_parada = new DAO_api_parada().execute("get").get();
+            lista_parada = new JSONObject(request_parada);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String registrar_parada(String nombre,String latitud,String longitud){
+        try {
+            String result = new DAO_api_parada().execute("post",nombre,latitud,longitud).get();
+            return result;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String get_parada(String id){
+        DAO_api_parada e = new DAO_api_parada();
+        try {
+            String request = e.execute("get_parada",id).get();
+            return request;
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        } catch (ExecutionException e1) {
+            e1.printStackTrace();
+        }
+        return "";
+    }
+
+    public String delete_parada(String id){
+        DAO_api_parada e = new DAO_api_parada();
+        try {
+            String request = e.execute("delete",id).get();
+            return request;
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        } catch (ExecutionException e1) {
+            e1.printStackTrace();
+        }
+        return "";
+    }
+
+    public String put_parada(String id,String nombre,String latitud,String longitud){
+        try {
+            String result = new DAO_api_parada().execute("put",id,nombre,latitud,longitud).get();
             return result;
         } catch (InterruptedException e) {
             e.printStackTrace();

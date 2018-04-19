@@ -9,8 +9,8 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class DAO_api_ruta extends AsyncTask<String,Void,String> {
-    private String url = "https://bus-api-moviles.herokuapp.com/api/ruta/";
+public class DAO_api_parada extends AsyncTask<String,Void,String> {
+    private String url = "https://bus-api-moviles.herokuapp.com/api/parada/";
 
     @Override
     protected String doInBackground(String... params) {
@@ -31,14 +31,11 @@ public class DAO_api_ruta extends AsyncTask<String,Void,String> {
             }break;
             case "post":{
                 try {
-                    JSONObject ruta = new JSONObject();
+                    JSONObject parada = new JSONObject();
                     try {
-                        ruta.put("nombre", params[1]);
-                        ruta.put("costo", params[2]);
-                        ruta.put("final", params[3]);
-                        ruta.put("inicio", params[4]);
-                        ruta.put("latitud", params[5]);
-                        ruta.put("longitud", params[6]);
+                        parada.put("nombre", params[1]);
+                        parada.put("latitud", params[2]);
+                        parada.put("longitud", params[3]);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -46,14 +43,14 @@ public class DAO_api_ruta extends AsyncTask<String,Void,String> {
                             .header("content-type", "application/json")
                             .header("cache-control", "no-cache")
                             .header("postman-token", "4f554794-9859-39ec-a223-b2b5cbc57610")
-                            .body(String.valueOf(ruta))
+                            .body(String.valueOf(parada))
                             .asString();
                     return response.toString();
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
             }break;
-            case "get_parada":{
+            case "get_ruta":{
                 try {
                     HttpResponse<String> response = Unirest.get(url+params[1]+"/")
                             .header("content-type", "application/json")
@@ -79,14 +76,11 @@ public class DAO_api_ruta extends AsyncTask<String,Void,String> {
             }break;
             case "put":{
                 try {
-                    JSONObject ruta = new JSONObject();
+                    JSONObject parada = new JSONObject();
                     try {
-                        ruta.put("nombre", params[2]);
-                        ruta.put("costo", params[3]);
-                        ruta.put("final", params[4]);
-                        ruta.put("inicio", params[5]);
-                        ruta.put("latitud", params[6]);
-                        ruta.put("longitud", params[7]);
+                        parada.put("nombre", params[2]);
+                        parada.put("latitud", params[3]);
+                        parada.put("longitud", params[4]);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -94,7 +88,7 @@ public class DAO_api_ruta extends AsyncTask<String,Void,String> {
                             .header("content-type", "application/json")
                             .header("cache-control", "no-cache")
                             .header("postman-token", "0fddc3cd-dcd0-07ee-e3a6-f1d5116f4a3d")
-                            .body(String.valueOf(ruta))
+                            .body(String.valueOf(parada))
                             .asString();
                     return response.toString();
                 } catch (UnirestException e) {
