@@ -2,17 +2,25 @@ package com.example.fauricio.proyecto_1_moviles.Vista.admin;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.EditText;
 
+import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class detalle_ruta extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
+    private EditText nombre,inicio,fin,costo,latitud,longitud;
+    private int id_ruta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +29,26 @@ public class detalle_ruta extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_ruta);
         toolbar.setTitle(R.string.txt_detalle_ruta);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlanco));
+        nombre = findViewById(R.id.et_nombre_rt);
+        inicio = findViewById(R.id.et_inicio_rt);
+        fin = findViewById(R.id.et_final_rt);
+        costo = findViewById(R.id.et_costo_rt);
+        latitud = findViewById(R.id.et_latitud_rt);
+        longitud = findViewById(R.id.et_longitud_rt);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        id_ruta = sharedPreferences.getInt("id_ruta",0);
+        String ruta = gestor.getInstance().get_ruta(String.valueOf(id_ruta));
+        try {
+            JSONObject json_ruta = new JSONObject(ruta);
+            nombre.setText(json_ruta.getString("nombre"));
+            inicio.setText(json_ruta.getString("inicio"));
+            fin.setText(json_ruta.getString("final"));
+            costo.setText(json_ruta.getString("costo"));
+            latitud.setText(json_ruta.getString("latitud"));
+            longitud.setText(json_ruta.getString("longitud"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         setSupportActionBar(toolbar);
     }
 
@@ -40,12 +68,16 @@ public class detalle_ruta extends AppCompatActivity {
         Intent intent;
         switch (item.getItemId()) {
             case R.id.editar:
-                Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
+                gestor.getInstance().put_ruta(String.valueOf(id_ruta),nombre.getText().toString(),costo.getText().toString(),inicio.getText().toString(),fin.getText().toString(),latitud.getText().toString(),longitud.getText().toString());
+                gestor.getInstance().actualizar_ruta();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.eliminar:
-                Toast.makeText(getApplicationContext(), "ELIMINAR", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "ELIMINAR", Toast.LENGTH_SHORT).show();
+                String request = gestor.getInstance().delete_ruta(String.valueOf(id_ruta));
+                gestor.getInstance().actualizar_ruta();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;

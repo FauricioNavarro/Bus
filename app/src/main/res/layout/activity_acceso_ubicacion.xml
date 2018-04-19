@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_vertical"
-    tools:context="com.example.fauricio.proyecto_1_moviles.Vista.acesso_ubicacion">
+    tools:context="com.example.fauricio.proyecto_1_moviles.Vista.acceso_ubicacion">
 
     <ImageView
         android:id="@+id/iv_logo"

@@ -13,7 +13,7 @@ public class acesso_ubicacion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acesso_ubicacion);
+        setContentView(R.layout.activity_acceso_ubicacion);
         encender = findViewById(R.id.btn_encender_gps);
 
     }

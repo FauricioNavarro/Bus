@@ -1,6 +1,5 @@
 package com.example.fauricio.proyecto_1_moviles.Vista.cliente;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,14 +8,12 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fauricio.proyecto_1_moviles.Controlador.DAO_api;
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.R;
+import com.example.fauricio.proyecto_1_moviles.Vista.activity_Login;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,7 +22,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
-import com.example.fauricio.proyecto_1_moviles.Vista.activity_Login;
 
 import java.util.concurrent.ExecutionException;
 
@@ -104,7 +100,7 @@ public class Main_cliente extends AppCompatActivity {
             GoogleSignInAccount account = result.getSignInAccount();
             try {
                 String response = new DAO_api().execute("GOOGLogin",account.getEmail(),"m5p9Neh+k2At!ZZRuD2YYCLs&@@47?wNq48jZ-GCc+x!%WVSHY^Z^e6rgdXL8pnxTH9D-PUu%99xqYB2!L*H",account.getGivenName(),account.getFamilyName()).get();
-                gestor.getInstance().usuario = response;
+                //gestor.getInstance().usuario = response;
 
             } catch (InterruptedException e) {
                 e.printStackTrace();

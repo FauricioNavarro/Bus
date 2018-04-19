@@ -2,7 +2,9 @@ package com.example.fauricio.proyecto_1_moviles.Vista.admin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listEmpresaAdapter;
@@ -30,7 +31,7 @@ public class EmpresaFragment extends Fragment {
     private ListView empresas;
     private listEmpresaAdapter adapter;
     private ArrayList<Empresa> ArrayItem = null;
-
+    private SharedPreferences sharedPreferences;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +56,13 @@ public class EmpresaFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Empresa temp = ArrayItem.get(i);
-                Toast.makeText(getContext(),temp.toString(),Toast.LENGTH_LONG).show();
-                //Intent intent = new Intent(getContext(),detalle_empresa.class);
-                //startActivity(intent);
+                sharedPreferences = PreferenceManager.getDefaultSharedPreferences(rootView.getContext());
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("id_empresa",temp.getID_empresa());
+                editor.commit();
+                //Toast.makeText(getContext(),temp.toString(),Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(),detalle_empresa.class);
+                startActivity(intent);
             }
         });
         cargarLista(rootView.getContext());
@@ -89,10 +94,5 @@ public class EmpresaFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        /*
-        for(int i = 0 ; i<12;i++){
-            String msj = "Empresa"+String.valueOf(i);
-            ArrayItem.add(new Empresa(i,msj,"Descripción"));
-        }*/
     }
 }

@@ -2,16 +2,14 @@ package com.example.fauricio.proyecto_1_moviles.Vista.admin;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.fauricio.proyecto_1_moviles.R;
-import com.example.fauricio.proyecto_1_moviles.Vista.Registro;
 
 public class detalle_chofer extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;

@@ -2,17 +2,25 @@ package com.example.fauricio.proyecto_1_moviles.Vista.admin;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.EditText;
 
+import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class detalle_parada extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
+    private EditText nombre,latitud,longitud;
+    private int id_parada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +30,20 @@ public class detalle_parada extends AppCompatActivity {
         toolbar.setTitle(R.string.txt_detalle_parada);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlanco));
         setSupportActionBar(toolbar);
+        nombre = findViewById(R.id.et_nombre);
+        latitud = findViewById(R.id.et_latitud);
+        longitud = findViewById(R.id.et_longitud);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        id_parada = sharedPreferences.getInt("id_parada",0);
+        String parada = gestor.getInstance().get_parada(String.valueOf(id_parada));
+        try {
+            JSONObject json_parada = new JSONObject(parada);
+            nombre.setText(json_parada.getString("nombre"));
+            latitud.setText(json_parada.getString("latitud"));
+            longitud.setText(json_parada.getString("longitud"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @SuppressLint("RestrictedApi")
@@ -40,12 +62,16 @@ public class detalle_parada extends AppCompatActivity {
         Intent intent;
         switch (item.getItemId()) {
             case R.id.editar:
-                Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
+                gestor.getInstance().put_parada(String.valueOf(id_parada),nombre.getText().toString(),latitud.getText().toString(),longitud.getText().toString());
+                gestor.getInstance().actualizar_parada();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.eliminar:
-                Toast.makeText(getApplicationContext(), "ELIMINAR", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "ELIMINAR", Toast.LENGTH_SHORT).show();
+                String request = gestor.getInstance().delete_parada(String.valueOf(id_parada));
+                gestor.getInstance().actualizar_parada();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;

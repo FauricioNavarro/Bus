@@ -2,7 +2,9 @@ package com.example.fauricio.proyecto_1_moviles.Vista.cliente;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,11 +13,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listEmpresaAdapter;
 import com.example.fauricio.proyecto_1_moviles.Modelo.Empresa;
 import com.example.fauricio.proyecto_1_moviles.R;
-import com.example.fauricio.proyecto_1_moviles.Vista.admin.agregar_empresa;
-import com.example.fauricio.proyecto_1_moviles.Vista.admin.detalle_empresa;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -25,6 +30,7 @@ public class empresa_cliente extends Fragment {
     private ListView empresas;
     private listEmpresaAdapter adapter;
     private ArrayList<Empresa> ArrayItem = null;
+    private SharedPreferences sharedPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +47,12 @@ public class empresa_cliente extends Fragment {
         empresas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(),detalle_empresa.class);
+                Empresa temp = ArrayItem.get(i);
+                sharedPreferences = PreferenceManager.getDefaultSharedPreferences(rootView.getContext());
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("id_empresa_user",temp.getID_empresa());
+                editor.commit();
+                Intent intent = new Intent(getContext(),detalle_empresa_user.class);
                 startActivity(intent);
             }
         });
@@ -59,11 +70,17 @@ public class empresa_cliente extends Fragment {
     }
 
     public void cargarLista(Context context){
-        for(int i = 0 ; i<12;i++){
-            String msj = "Empresa"+String.valueOf(i);
-            ArrayItem.add(new Empresa(i,msj,"Descripción"));
+        try {
+            JSONObject obj = gestor.getInstance().getLista_empresa();
+            JSONArray json_empresas = obj.getJSONArray("objects");
+            for(int i=0;i<json_empresas.length();i++){
+                JSONObject object = (JSONObject) json_empresas.getJSONObject(i);
+                ArrayItem.add(new Empresa(object.getInt("id"),object.getString("nombre"),object.getString("descripcion")));
+                adapter = new listEmpresaAdapter(ArrayItem, context);
+                empresas.setAdapter(adapter);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        adapter = new listEmpresaAdapter(ArrayItem, context);
-        empresas.setAdapter(adapter);
     }
 }

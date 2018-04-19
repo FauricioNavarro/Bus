@@ -104,6 +104,10 @@
             android:label="@string/title_activity_main_cliente" />
         <activity android:name=".Vista.acesso_ubicacion"></activity>
         <service android:name=".Vista.chofer.GPS_Service"/>
+
+        <activity android:name=".Vista.cliente.detalle_empresa_user" />
+        <activity android:name=".Vista.cliente.detalle_ruta_user" />
+        <activity android:name=".Vista.cliente.detalle_parada_user"></activity>
     </application>
 
 </manifest>

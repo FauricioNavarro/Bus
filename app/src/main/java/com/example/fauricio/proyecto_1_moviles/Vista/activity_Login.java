@@ -30,20 +30,6 @@ public class activity_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Solo Cambiar Datos :)
-        //new DAO_api().execute("Login","juan_jop96@hotmail.com","Bases2018");
-        //Asi funciona
-        /*
-        try {
-            String resultado = n.execute().get();
-            Toast.makeText(getApplicationContext(),resultado, Toast.LENGTH_LONG).show();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        */
-
         usuario = findViewById(R.id.et_username_login);
         contraseña = findViewById(R.id.et_password_login);
 
@@ -76,36 +62,32 @@ public class activity_Login extends AppCompatActivity {
         Intent intent;
         String user = usuario.getText().toString();
         String pass = contraseña.getText().toString();
-        int login_auth = gestor.getInstance().login(user,pass);
-        if(login_auth!=0){
-            if(login_auth==1){
-                intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-            }else{
-                if(login_auth==2){
-                    intent = new Intent(getApplicationContext(),Main_chofer.class);
+        if(!user.equals("") && !pass.equals("")){
+            int login_auth = gestor.getInstance().login(user,pass);
+            if(login_auth!=0){
+                if(login_auth==1){
+                    intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                 }else{
-                    intent = new Intent(getApplicationContext(),Main_cliente.class);
-                    startActivity(intent);
+                    if(login_auth==2){
+                        intent = new Intent(getApplicationContext(),Main_chofer.class);
+                        startActivity(intent);
+                    }else{
+                        intent = new Intent(getApplicationContext(),Main_cliente.class);
+                        startActivity(intent);
+                    }
                 }
-            }
-        }
-        /*
-
-        if(user.equals("")){
-            intent = new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(intent);
-        }else{
-            if(user.equals("chofer")){
-                intent = new Intent(getApplicationContext(),Main_chofer.class);
-                startActivity(intent);
             }else{
-                intent = new Intent(getApplicationContext(),Main_cliente.class);
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(),"Error al iniciar sesión",Toast.LENGTH_LONG).show();
+                Limpiar();
             }
-        }*/
+        }else{
+            Toast.makeText(getApplicationContext(),"Error al iniciar sesión",Toast.LENGTH_LONG).show();
+            Limpiar();
+        }
     }
+
+
 
     public void registro(View view){
         Intent intent = new Intent(getApplicationContext(),Registro.class);
@@ -141,6 +123,11 @@ public class activity_Login extends AppCompatActivity {
         Intent intent = new Intent(this, Main_cliente.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    public void Limpiar(){
+        usuario.setText("");
+        contraseña.setText("");
     }
 
 }
