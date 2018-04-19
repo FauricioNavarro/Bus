@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorNegro">#000000</color>
     <color name="colorBlanco">#FFFFFF</color>
+    <color name="colorRouteLine">#FF4081</color>
 </resources>

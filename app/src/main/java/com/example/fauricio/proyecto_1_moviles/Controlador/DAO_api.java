@@ -1,6 +1,8 @@
 package com.example.fauricio.proyecto_1_moviles.Controlador;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.mashape.unirest.http.HttpResponse;
@@ -11,6 +13,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DAO_api extends AsyncTask<String, Void, String> {
+
+    public String response_usuario;
 
     @Override
     protected void onPreExecute() {
@@ -77,6 +81,8 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                             .header("cache-control", "no-cache")
                             .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                             .asString();
+
+                        response_usuario = finalresponse.getBody().toString();
                         return finalresponse.getBody().toString();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -117,6 +123,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                                 .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                                 .asString();
                         Log.d("GOOGLogin","Login con GOOGLE");
+                        response_usuario = finalresponse.getBody().toString();
                         return finalresponse.getBody().toString();
 
                         }
@@ -164,6 +171,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                                 .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                                 .asString();
                         Log.d("GOOGLogin","Usuario Nuevo de GOOGLE");
+                        response_usuario = finalresponse.getBody().toString();
                         return finalresponse.getBody().toString();
 
                     } catch (UnirestException e1) {
@@ -181,4 +189,5 @@ public class DAO_api extends AsyncTask<String, Void, String> {
         }
         return null;
     }
+
 }

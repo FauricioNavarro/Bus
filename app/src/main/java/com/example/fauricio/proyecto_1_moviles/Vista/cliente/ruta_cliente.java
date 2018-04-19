@@ -42,7 +42,7 @@ public class ruta_cliente extends Fragment {
         rutas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(),detalle_ruta.class);
+                Intent intent = new Intent(getContext(),MapsActivity.class);
                 startActivity(intent);
             }
         });
