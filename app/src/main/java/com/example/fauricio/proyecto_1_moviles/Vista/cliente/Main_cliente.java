@@ -1,6 +1,8 @@
 package com.example.fauricio.proyecto_1_moviles.Vista.cliente;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fauricio.proyecto_1_moviles.Controlador.DAO_api;
+import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -24,9 +27,12 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.example.fauricio.proyecto_1_moviles.Vista.activity_Login;
 
+import java.util.concurrent.ExecutionException;
+
 public class Main_cliente extends AppCompatActivity {
 
     private GoogleApiClient googleApiClient;
+    SharedPreferences sharedPreferences;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -96,9 +102,15 @@ public class Main_cliente extends AppCompatActivity {
     public void probarLogin(GoogleSignInResult result){
         if (result.isSuccess()){
             GoogleSignInAccount account = result.getSignInAccount();
-            DAO_api dao= new DAO_api();
-            dao.execute("GOOGLogin",account.getEmail(),"m5p9Neh+k2At!ZZRuD2YYCLs&@@47?wNq48jZ-GCc+x!%WVSHY^Z^e6rgdXL8pnxTH9D-PUu%99xqYB2!L*H",account.getGivenName(),account.getFamilyName());
-            Log.i("AQUI", dao.response_usuario);
+            try {
+                String response = new DAO_api().execute("GOOGLogin",account.getEmail(),"m5p9Neh+k2At!ZZRuD2YYCLs&@@47?wNq48jZ-GCc+x!%WVSHY^Z^e6rgdXL8pnxTH9D-PUu%99xqYB2!L*H",account.getGivenName(),account.getFamilyName()).get();
+                gestor.getInstance().usuario = response;
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         }else{
             Intent intent = new Intent(this, activity_Login.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

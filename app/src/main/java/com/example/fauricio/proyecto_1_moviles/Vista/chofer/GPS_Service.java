@@ -30,7 +30,6 @@ public class GPS_Service extends Service {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                // AQUI SE HACE EL REQUEST
                 Log.i("ubicacion",location.getLatitude()+" "+ location.getLongitude());
                 Intent i = new Intent("gps_service");
                 i.putExtra("msg", "La ruta ha empezado y se está compartiendo su ubicación. ");
@@ -59,7 +58,7 @@ public class GPS_Service extends Service {
 
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
 
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300,0,listener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,10,listener);
     }
 
     @Override

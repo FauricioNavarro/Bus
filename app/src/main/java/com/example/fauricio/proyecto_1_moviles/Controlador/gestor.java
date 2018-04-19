@@ -1,5 +1,7 @@
 package com.example.fauricio.proyecto_1_moviles.Controlador;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -10,6 +12,7 @@ import java.util.concurrent.ExecutionException;
 public class gestor {
     private static final gestor ourInstance = new gestor();
     private JSONObject lista_empresa;
+    public String usuario;
 
     public static gestor getInstance() {
         return ourInstance;
@@ -19,6 +22,7 @@ public class gestor {
         try {
             String request_empresa = new DAO_api_empresa().execute("get").get();
             lista_empresa = new JSONObject(request_empresa);
+            usuario = null;
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -56,6 +60,7 @@ public class gestor {
         try {
             DAO_api e = new DAO_api();
             String result = e.execute("login", email, password).get();
+            usuario = result;
             JSONObject user = new JSONObject(result);
             String admin = user.getString("is_admin");
             String chofer = user.getString("chofer");

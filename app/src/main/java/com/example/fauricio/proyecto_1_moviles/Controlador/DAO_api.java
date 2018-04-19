@@ -14,17 +14,11 @@ import org.json.JSONObject;
 
 public class DAO_api extends AsyncTask<String, Void, String> {
 
-    public String response_usuario;
 
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-
-    }
-
-
     protected String doInBackground(String... params) {
         String tipoEjecucion = params[0];
+        String output = null;
         switch (tipoEjecucion){
             case "get":{
 
@@ -46,7 +40,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                             .header("postman-token", "4f554794-9859-39ec-a223-b2b5cbc57610")
                             .body(String.valueOf(student1))
                             .asString();
-                    return "1";
+                    output = "1";
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
@@ -81,9 +75,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                             .header("cache-control", "no-cache")
                             .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                             .asString();
-
-                        response_usuario = finalresponse.getBody().toString();
-                        return finalresponse.getBody().toString();
+                    output = finalresponse.getBody().toString();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     } catch (UnirestException e) {
@@ -123,8 +115,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                                 .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                                 .asString();
                         Log.d("GOOGLogin","Login con GOOGLE");
-                        response_usuario = finalresponse.getBody().toString();
-                        return finalresponse.getBody().toString();
+                        output = finalresponse.getBody().toString();
 
                         }
                     } catch (JSONException e) {
@@ -171,8 +162,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                                 .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                                 .asString();
                         Log.d("GOOGLogin","Usuario Nuevo de GOOGLE");
-                        response_usuario = finalresponse.getBody().toString();
-                        return finalresponse.getBody().toString();
+                        output = finalresponse.getBody().toString();
 
                     } catch (UnirestException e1) {
                         e1.printStackTrace();
@@ -187,7 +177,12 @@ public class DAO_api extends AsyncTask<String, Void, String> {
 
             }break;
         }
-        return null;
+        return output;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
     }
 
 }
