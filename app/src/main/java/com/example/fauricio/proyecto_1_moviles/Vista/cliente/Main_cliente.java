@@ -1,19 +1,17 @@
-package com.example.fauricio.proyecto_1_moviles.Vista;
+package com.example.fauricio.proyecto_1_moviles.Vista.cliente;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.fauricio.proyecto_1_moviles.R;
 
-public class MainActivity extends AppCompatActivity {
-
-    private TextView mTextMessage;
+public class Main_cliente extends AppCompatActivity {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -23,17 +21,14 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             switch (item.getItemId()) {
-                case R.id.navigation_chofer:
-                    transaction.replace(R.id.frame_contenedor,new ChoferFragment()).commit();
+                case R.id.navigation_empresa_cliente:
+                    transaction.replace(R.id.frame_contenedor_cliente,new empresa_cliente()).commit();
                     return true;
-                case R.id.navigation_empresa:
-                    transaction.replace(R.id.frame_contenedor,new EmpresaFragment()).commit();
+                case R.id.navigation_rutas_cliente:
+                    transaction.replace(R.id.frame_contenedor_cliente,new ruta_cliente()).commit();
                     return true;
-                case R.id.navigation_rutas:
-                    transaction.replace(R.id.frame_contenedor,new RutaFragment()).commit();
-                    return true;
-                case R.id.navigation_paradas:
-                    transaction.replace(R.id.frame_contenedor,new ParadaFragment()).commit();
+                case R.id.navigation_paradas_cliente:
+                    transaction.replace(R.id.frame_contenedor_cliente,new parada_cliente()).commit();
                     return true;
             }
             return false;
@@ -43,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_cliente);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frame_contenedor,new ChoferFragment()).commit();
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        transaction.replace(R.id.frame_contenedor_cliente,new empresa_cliente()).commit();
+        BottomNavigationView navigation_cliente = (BottomNavigationView) findViewById(R.id.navigation_cliente);
+        navigation_cliente.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
 }

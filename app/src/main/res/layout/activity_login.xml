@@ -1,43 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_vertical"
     tools:context="com.example.fauricio.proyecto_1_moviles.Vista.activity_Login">
 
-    <Space
-        android:layout_width="1dp"
-        android:layout_height="50dp" />
 
     <ImageView
         android:id="@+id/iv_logo"
         android:layout_gravity="center_horizontal"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:background="@color/colorPrimaryDark"/>
+        android:background="@drawable/logo"/>
 
     <Space
         android:layout_width="1dp"
         android:layout_height="20dp" />
 
     <EditText
-        android:id="@+id/et_username"
+        android:id="@+id/et_username_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
         android:hint="@string/et_username"/>
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/et_password_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
         android:hint="@string/et_password"/>
 
     <Space
-        android:layout_width="1dp"
+        android:layout_width="match_parent"
         android:layout_height="10dp" />
 
     <Button
@@ -68,5 +65,17 @@
         android:textSize="14sp"
         android:text="@string/btn_olvide_cont"
         android:onClick="consulta_contraseña"/>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="10dp" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/bt_SignInGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="signIn"
+        />
 
 </LinearLayout>

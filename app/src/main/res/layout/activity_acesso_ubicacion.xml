@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context="com.example.fauricio.proyecto_1_moviles.Vista.acesso_ubicacion">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/locaton"/>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorNegro"
+        android:text="@string/txt_acesso_ubicacion"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorNegro"
+        android:text="@string/txt_acceso_ubicacion_1"/>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="10dp" />
+
+    <Button
+        android:id="@+id/btn_encender_gps"
+        style="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:text="@string/btn_encender_gps"
+        android:onClick="Encender_gps"/>
+
+</LinearLayout>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *.iml
 .gradle
 /local.properties
@@ -8,7 +7,7 @@
 /build
 /captures
 .externalNativeBuild
-=======
+
 # Built application files
 *.apk
 *.ap_
@@ -64,4 +63,38 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
->>>>>>> 44ebd12f5df2c9ddd65cc7e7535ec39410a5720e
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+/Cliente/NetBeansProjects/CARLOS/build/
+/Cliente/NetBeansProjects/CARLOS/dist/

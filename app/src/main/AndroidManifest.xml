@@ -2,30 +2,105 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fauricio.proyecto_1_moviles">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Vista.MainActivity"
-            android:label="@string/app_name" />
+            android:name=".Vista.admin.MainActivity"
+            android:label="@string/title_menu" />
         <activity
             android:name=".Vista.activity_Login"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Vista.Registro"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Vista.RecuperarPassword"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Vista.Registro"
+            android:label="Registro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vista.RecuperarPassword"
+            android:label="@string/title_recuperar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vista.admin.detalle_chofer"
+            android:parentActivityName=".Vista.admin.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Vista.admin.agregar_choferActivity"
+            android:label="@string/title_add_chofer"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Vista.admin.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Vista.admin.MainActivity" />
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".Vista.admin.agregar_empresa"
+            android:label="@string/title_add_empresa"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Vista.admin.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Vista.admin.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".Vista.admin.detalle_empresa"
+            android:parentActivityName=".Vista.admin.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name=".Vista.admin.detalle_ruta"
+            android:parentActivityName=".Vista.admin.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name=".Vista.admin.agregar_ruta"
+            android:label="@string/title_add_ruta"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Vista.admin.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Vista.admin.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".Vista.admin.agregar_parada"
+            android:label="@string/title_add_parada"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Vista.admin.detalle_parada"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Vista.chofer.Main_chofer" />
+        <activity android:name=".Vista.chofer.mapa_chofer" />
+        <activity
+            android:name=".Vista.cliente.Main_cliente"
+            android:label="@string/title_activity_main_cliente" />
+        <activity android:name=".Vista.acesso_ubicacion"></activity>
+        <service android:name=".Vista.chofer.GPS_Service"/>
     </application>
 
 </manifest>

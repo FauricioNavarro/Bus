@@ -23,4 +23,11 @@ public class Cliente extends Usuario {
     public void setImagen(int imagen) {
         Imagen = imagen;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "Imagen=" + Imagen +
+                '}';
+    }
 }

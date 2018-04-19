@@ -1,11 +1,19 @@
 <resources>
-    <string name="app_name">Proyecto_1_moviles</string>
+    <string name="app_name">Bus</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_registro">Registro</string>
+    <string name="title_recuperar">Recuperar contraseña</string>
+    <string name="title_menu">Menú</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- CRUD text  -->
+    <string name="txt_agregar">Agregar</string>
+    <string name="txt_modificar">Modificar</string>
+
     <!-- Pantalla de login  -->
     <string name="btn_login"><b>Ingresar</b></string>
     <string name="btn_crear_cuenta"><u>Crear una nueva cuenta</u></string>
@@ -15,16 +23,55 @@
     <string name="et_correo">Email</string>
     <string name="et_nombre">Nombre</string>
     <string name="btn_registro"><b>Registro</b></string>
+
     <!-- Strings del menu  -->
     <string name="txt_empresa">Empresas</string>
     <string name="txt_chofer">Choferes</string>
     <string name="txt_rutas">Rutas</string>
     <string name="txt_paradas">Paradas</string>
     <string name="title_activity_recuperar_contra">RecuperarContra</string>
+
     <!-- Strings recuperacion de contraseña  -->
     <string name="txt_pregunta"><i><b>¿Has olvidado tu contrasña?</b></i></string>
     <string name="txt_restablecer_contraseña">Si deseas restablecer la contraseña, introduce el nombre de
     usuario y dirección de correo que utilizas para iniciar sesión.</string>
     <string name="btn_recuperar"><b>Recuperar</b></string>
+    <string name="error_conexion">Ocurrió un error al conectarse.</string>
+    <string name="fallo_sign_in">Falló al intentar loguearse con Google</string>
 
+    <!-- Strings pantalla chofer  -->
+    <string name="title_add_chofer">Nuevo chofer</string>
+    <string name="txt_detalle_chofer">Información del chofer</string>
+    <string name="txt_placa">Placa</string>
+    <string name="txt_rating">Rating</string>
+    <string name="et_empresa">Empresa</string>
+
+    <!-- Strings pantalla empresa  -->
+    <string name="title_add_empresa">Nueva empresa</string>
+    <string name="txt_detalle_empresa">Información de la empresa</string>
+    <string name="txt_descp">Descripción</string>
+
+    <!-- Strings pantalla ruta  -->
+    <string name="title_add_ruta">Nueva ruta</string>
+    <string name="txt_detalle_ruta">Información de la ruta</string>
+    <string name="txt_inicio">Lugar inicial</string>
+    <string name="txt_final">Lugar final</string>
+    <string name="txt_costo">Costo pasaje</string>
+    <string name="txt_costo_aux">Costo pasaje: </string>
+
+    <!-- Strings pantalla parada  -->
+    <string name="title_add_parada">Nueva parada</string>
+    <string name="txt_detalle_parada">Información de la parada</string>
+
+    <!-- Strings acceso a ubicacion  -->
+    <string name="title_acceso_ubicacion">Acceso a ubicación</string>
+    <string name="txt_acesso_ubicacion"><i><b>La aplicación requiere acceso a tu ubicación</b></i></string>
+    <string name="txt_acceso_ubicacion_1">Para disfrutar todos los servicios que ofrese el
+        app, enciende el GPS y da acceso a tu ubicación
+    </string>
+    <string name="btn_encender_gps">Encender GPS</string>
+
+    <string name="title_activity_menu_chofer">menu_chofer</string>
+    <string name="title_activity_agregar_ruta">agregar_ruta</string>
+    <string name="title_activity_main_cliente">Main_cliente</string>
 </resources>

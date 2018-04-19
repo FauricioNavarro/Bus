@@ -2,12 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.fauricio.proyecto_1_moviles.Vista.ChoferFragment">
+    tools:context="com.example.fauricio.proyecto_1_moviles.Vista.admin.ChoferFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/FB_agregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add_black_24dp" />
+
+    <ListView
+        android:id="@+id/LV_choferes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Esto es el fragment del chofer" />
+        android:layout_height="match_parent"></ListView>
 
 </FrameLayout>

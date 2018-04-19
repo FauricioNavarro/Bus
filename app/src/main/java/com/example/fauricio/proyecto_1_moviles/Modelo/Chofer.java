@@ -9,7 +9,6 @@ public class Chofer extends Usuario{
     private Empresa empresa;
     private String placa;
 
-
     public Chofer(int ID_usuario, String nombre, Nivel_usuario nivel) {
         super(ID_usuario, nombre, nivel);
     }
@@ -43,5 +42,14 @@ public class Chofer extends Usuario{
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    @Override
+    public String toString() {
+        return "Chofer{" +
+                "rating=" + rating +
+                ", empresa=" + empresa +
+                ", placa='" + placa + '\'' +
+                '}';
     }
 }

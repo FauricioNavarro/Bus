@@ -8,17 +8,17 @@ import java.util.ArrayList;
 
 public class Ruta {
     private int ID_ruta;
+    private String Nombre;
     private String Inicio;
     private String Final;
     private float Costo;
-    private ArrayList<Parada> Paradas;
 
-    public Ruta(int ID_ruta, String inicio, String aFinal, float costo, ArrayList<Parada> paradas) {
+    public Ruta(int ID_ruta, String nombre, String inicio, String aFinal, float costo) {
         this.ID_ruta = ID_ruta;
+        Nombre = nombre;
         Inicio = inicio;
         Final = aFinal;
         Costo = costo;
-        Paradas = new ArrayList<>();
     }
 
     public int getID_ruta() {
@@ -27,6 +27,14 @@ public class Ruta {
 
     public void setID_ruta(int ID_ruta) {
         this.ID_ruta = ID_ruta;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
     }
 
     public String getInicio() {
@@ -51,13 +59,5 @@ public class Ruta {
 
     public void setCosto(float costo) {
         Costo = costo;
-    }
-
-    public ArrayList<Parada> getParadas() {
-        return Paradas;
-    }
-
-    public void setParadas(ArrayList<Parada> paradas) {
-        Paradas = paradas;
     }
 }
