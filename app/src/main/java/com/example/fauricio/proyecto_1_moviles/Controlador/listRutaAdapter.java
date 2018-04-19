@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fauricio.proyecto_1_moviles.Modelo.Empresa;
 import com.example.fauricio.proyecto_1_moviles.Modelo.Ruta;
 import com.example.fauricio.proyecto_1_moviles.R;
 

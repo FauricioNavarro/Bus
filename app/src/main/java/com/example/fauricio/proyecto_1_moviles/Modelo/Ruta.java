@@ -1,7 +1,5 @@
 package com.example.fauricio.proyecto_1_moviles.Modelo;
 
-import java.util.ArrayList;
-
 /**
  * Created by fauricio on 29/03/18.
  */

@@ -53,6 +53,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name=".Vista.admin.agregar_empresa"
@@ -95,9 +98,14 @@
         <activity
             android:name=".Vista.cliente.Main_cliente"
             android:label="@string/title_activity_main_cliente" />
+<<<<<<< HEAD
         <activity android:name=".Vista.acceso_ubicacion" />
 
         <service android:name=".Vista.chofer.GPS_Service" />
+=======
+        <activity android:name=".Vista.acesso_ubicacion"></activity>
+        <service android:name=".Vista.chofer.GPS_Service"/>
+>>>>>>> master
 
         <activity android:name=".Vista.cliente.detalle_empresa_user" />
         <activity android:name=".Vista.cliente.detalle_ruta_user" />

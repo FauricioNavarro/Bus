@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fauricio.proyecto_1_moviles.Modelo.Empresa;
-import com.example.fauricio.proyecto_1_moviles.Modelo.item;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 import java.util.ArrayList;

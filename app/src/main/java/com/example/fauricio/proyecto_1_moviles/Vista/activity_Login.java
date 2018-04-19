@@ -32,6 +32,7 @@ public class activity_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+<<<<<<< HEAD
         // Solo Cambiar Datos :)
         //new DAO_api().execute("Login","juan_jop96@hotmail.com","Bases2018");
         //Asi funciona
@@ -46,6 +47,8 @@ public class activity_Login extends AppCompatActivity {
         }
         */
 
+=======
+>>>>>>> master
         usuario = findViewById(R.id.et_username_login);
         contraseña = findViewById(R.id.et_password_login);
 
@@ -85,6 +88,7 @@ public class activity_Login extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                 }else{
+<<<<<<< HEAD
                     locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
                     if(login_auth==2){
                         if(!locationManager.isProviderEnabled(locationManager.GPS_PROVIDER)){
@@ -105,6 +109,14 @@ public class activity_Login extends AppCompatActivity {
                             intent = new Intent(getApplicationContext(),Main_cliente.class);
                             startActivity(intent);
                         }
+=======
+                    if(login_auth==2){
+                        intent = new Intent(getApplicationContext(),Main_chofer.class);
+                        startActivity(intent);
+                    }else{
+                        intent = new Intent(getApplicationContext(),Main_cliente.class);
+                        startActivity(intent);
+>>>>>>> master
                     }
                 }
             }else{
@@ -116,6 +128,8 @@ public class activity_Login extends AppCompatActivity {
             Limpiar();
         }
     }
+
+
 
     public void registro(View view){
         Intent intent = new Intent(getApplicationContext(),Registro.class);
@@ -148,7 +162,7 @@ public class activity_Login extends AppCompatActivity {
 
 
     private void goMainScreen() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Main_cliente.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

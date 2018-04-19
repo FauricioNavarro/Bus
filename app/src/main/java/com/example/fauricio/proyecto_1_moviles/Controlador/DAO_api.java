@@ -12,15 +12,11 @@ import org.json.JSONObject;
 
 public class DAO_api extends AsyncTask<String, Void, String> {
 
+
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-
-    }
-
-
     protected String doInBackground(String... params) {
         String tipoEjecucion = params[0];
+        String output = null;
         switch (tipoEjecucion){
             case "post":{
                 try {
@@ -30,7 +26,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                         student1.put("password", params[2]);
                         student1.put("first_name", params[3]);
                         student1.put("last_name",params[4]);
-                     } catch (JSONException e) {
+                    } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     HttpResponse<String> response = Unirest.post("https://bus-api-moviles.herokuapp.com/api/user/create/")
@@ -39,7 +35,11 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                             .header("postman-token", "4f554794-9859-39ec-a223-b2b5cbc57610")
                             .body(String.valueOf(student1))
                             .asString();
+<<<<<<< HEAD
                     return response.toString();
+=======
+                    output =  response.toString();
+>>>>>>> master
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
@@ -59,6 +59,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                             .header("postman-token", "9285d672-f19a-0f5d-92d4-b6de9bf02303")
                             .body(String.valueOf(login))
                             .asString();
+<<<<<<< HEAD
                         JSONObject json1 = new JSONObject(response.getBody().toString());
                         String Token = (String) json1.get("token");
                         HttpResponse<String> response1 = Unirest.get("https://bus-api-moviles.herokuapp.com/api/user/view")
@@ -71,14 +72,28 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                         int ID = json2.getInt("id");
                         gestor.getInstance().setId_user(ID);
                         HttpResponse<String> finalresponse = Unirest.get("https://bus-api-moviles.herokuapp.com/api/users/"+String.valueOf(ID)+"/")
+=======
+                    JSONObject json1 = new JSONObject(response.getBody().toString());
+                    String Token = (String) json1.get("token");
+                    HttpResponse<String> response1 = Unirest.get("https://bus-api-moviles.herokuapp.com/api/user/view")
+                            .header("content-type", "application/json")
+                            .header("authorization", "JWT "+Token)
+                            .header("cache-control", "no-cache")
+                            .asString();
+                    JSONObject json2 = new JSONObject(response1.getBody().toString());
+                    //GUARDAR ESTE ID EN SHARED PREFFERENCES
+                    int ID = json2.getInt("id");
+                    gestor.getInstance().setId_user(ID);
+                    HttpResponse<String> finalresponse = Unirest.get("https://bus-api-moviles.herokuapp.com/api/users/"+String.valueOf(ID)+"/")
+>>>>>>> master
                             .header("cache-control", "no-cache")
                             .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                             .asString();
-                        return finalresponse.getBody().toString();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (UnirestException e) {
-                        e.printStackTrace();
+                    output = finalresponse.getBody().toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (UnirestException e) {
+                    e.printStackTrace();
                 }
             }break;
             case "GOOGLogin":{
@@ -113,7 +128,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                                 .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                                 .asString();
                         Log.d("GOOGLogin","Login con GOOGLE");
-                        return finalresponse.getBody().toString();
+                        output = finalresponse.getBody().toString();
 
                         }
                     } catch (JSONException e) {
@@ -160,7 +175,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                                 .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")
                                 .asString();
                         Log.d("GOOGLogin","Usuario Nuevo de GOOGLE");
-                        return finalresponse.getBody().toString();
+                        output = finalresponse.getBody().toString();
 
                     } catch (UnirestException e1) {
                         e1.printStackTrace();
@@ -174,6 +189,12 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                     }
             }break;
         }
-        return null;
+        return output;
     }
+
+    @Override
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+    }
+
 }
