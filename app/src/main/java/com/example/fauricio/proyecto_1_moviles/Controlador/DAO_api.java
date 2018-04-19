@@ -80,7 +80,6 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                     } catch (UnirestException e) {
                         e.printStackTrace();
                 }
-
             }break;
             case "GOOGLogin":{
                 try {

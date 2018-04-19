@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.DAO_api;
 import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.R;
 import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
@@ -34,7 +33,7 @@ public class activity_Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Solo Cambiar Datos :)
-        new DAO_api().execute("Login","juan_jop96@hotmail.com","Bases2018");
+        //new DAO_api().execute("Login","juan_jop96@hotmail.com","Bases2018");
         //Asi funciona
         /*
         try {
