@@ -28,9 +28,9 @@ public class gestor {
         }
     }
 
-    public String registrar(String email,String password){
+    public String registrar(String email,String password,String nombre,String apellido){
         try {
-            String result = new DAO_api().execute("post",email,password).get();
+            String result = new DAO_api().execute("post",email,password,nombre,apellido).get();
             return result;
         } catch (InterruptedException e) {
             e.printStackTrace();

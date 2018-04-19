@@ -54,6 +54,8 @@ public class DAO_api extends AsyncTask<String, Void, String> {
 
                         login.put("email", params[1]);
                         login.put("password", params[2]);
+                        login.put("first_name", params[3]);
+                        login.put("last_name",params[4]);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

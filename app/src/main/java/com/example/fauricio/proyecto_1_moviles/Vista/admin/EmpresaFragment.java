@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -55,10 +56,10 @@ public class EmpresaFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Empresa temp = ArrayItem.get(i);
-                SharedPreferences ref = rootView.getContext().getSharedPreferences("App_references", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = ref.edit();
-                editor.commit();
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(rootView.getContext());
+                SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt("id_empresa",temp.getID_empresa());
+                editor.commit();
                 //Toast.makeText(getContext(),temp.toString(),Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getContext(),detalle_empresa.class);
                 startActivity(intent);

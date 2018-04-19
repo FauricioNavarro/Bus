@@ -1,10 +1,10 @@
 package com.example.fauricio.proyecto_1_moviles.Vista.admin;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
@@ -20,8 +20,8 @@ public class detalle_empresa extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_empresa);
-        SharedPreferences ref = getApplicationContext().getSharedPreferences("App_references", Context.MODE_PRIVATE);
-        int id = ref.getInt("id_empresa",0);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        int id = sharedPreferences.getInt("id_empresa",0);
         Toast.makeText(getApplicationContext(),String.valueOf(id),Toast.LENGTH_LONG);
         Toast.makeText(getApplicationContext(),"Hola",Toast.LENGTH_LONG);
         toolbar = findViewById(R.id.toolbar_empresa);

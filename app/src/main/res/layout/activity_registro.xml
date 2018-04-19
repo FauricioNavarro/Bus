@@ -19,12 +19,19 @@
         android:layout_width="1dp"
         android:layout_height="20dp" />
 
-    <!--EditText
-        android:id="@+id/et_nombre"
+    <EditText
+        android:id="@+id/et_nombre_reg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
-        android:hint="@string/et_nombre"/-->
+        android:hint="@string/et_nombre"/>
+
+    <EditText
+        android:id="@+id/et_apellido_reg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:hint="Apellido"/>
 
     <EditText
         android:id="@+id/et_correo_reg"
