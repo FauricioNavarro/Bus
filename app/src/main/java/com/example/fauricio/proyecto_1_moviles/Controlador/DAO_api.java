@@ -22,9 +22,6 @@ public class DAO_api extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         String tipoEjecucion = params[0];
         switch (tipoEjecucion){
-            case "get":{
-
-            }break;
             case "post":{
                 try {
                     JSONObject student1 = new JSONObject();
@@ -51,11 +48,8 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                 try {
                     JSONObject login = new JSONObject();
                     try {
-
                         login.put("email", params[1]);
                         login.put("password", params[2]);
-                        login.put("first_name", params[3]);
-                        login.put("last_name",params[4]);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -178,7 +172,6 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                     } catch (UnirestException e) {
                         e.printStackTrace();
                     }
-
             }break;
         }
         return null;

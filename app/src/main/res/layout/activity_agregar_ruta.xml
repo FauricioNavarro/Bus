@@ -12,7 +12,7 @@
         android:layout_height="60dp" />
 
     <EditText
-        android:id="@+id/et_nombre"
+        android:id="@+id/et_nombre_rt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:fontFamily="@font/roboto"
@@ -20,22 +20,22 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/et_inicio"
+        android:id="@+id/et_inicio_rt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
         android:hint="@string/txt_inicio"/>
 
     <EditText
-        android:id="@+id/et_final"
+        android:id="@+id/et_final_rt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
-        android:inputType="number"
+        android:inputType="text"
         android:hint="@string/txt_final"/>
 
     <EditText
-        android:id="@+id/et_costo"
+        android:id="@+id/et_costo_rt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
@@ -43,11 +43,18 @@
         android:hint="@string/txt_costo"/>
 
     <EditText
-        android:id="@+id/et_empresa"
+        android:id="@+id/et_latitud_rt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textAlignment="center"
-        android:hint="@string/et_empresa"/>
+        android:hint="Latitud"/>
+
+    <EditText
+        android:id="@+id/et_longitud_rt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:hint="Longitud"/>
 
     <Space
         android:layout_width="1dp"
@@ -59,6 +66,7 @@
         android:layout_height="50dp"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:hint="@string/txt_agregar"/>
+        android:hint="@string/txt_agregar"
+        android:onClick="agregar_ruta"/>
 
 </LinearLayout>

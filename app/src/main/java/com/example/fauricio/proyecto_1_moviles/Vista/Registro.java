@@ -28,13 +28,23 @@ public class Registro extends AppCompatActivity {
         String apellido_aux = apellido.getText().toString();
         if(!user_aux.equals("") && !pass_aux.equals("") && !nomb_aux.equals("") && !apellido_aux.equals("")){
             String result = gestor.getInstance().registrar(user_aux,pass_aux,nomb_aux,apellido_aux);
-            if(result=="1"){
+            if(result!=null){
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
+                Limpiar();
             }else{
                 Toast.makeText(getApplicationContext(),"Error al realizar registro", Toast.LENGTH_LONG).show();
+                Limpiar();
             }
         }else{
             Toast.makeText(getApplicationContext(),"Error al realizar registro", Toast.LENGTH_LONG).show();
+            Limpiar();
         }
+    }
+
+    public void Limpiar(){
+        user.setText("");
+        password.setText("");
+        nombre.setText("");
+        apellido.setText("");
     }
 }

@@ -1,11 +1,8 @@
 package com.example.fauricio.proyecto_1_moviles.Vista.admin;
-import com.example.fauricio.proyecto_1_moviles.Controlador.listChoferAdapter;
-import com.example.fauricio.proyecto_1_moviles.Modelo.*;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.fauricio.proyecto_1_moviles.Controlador.listChoferAdapter;
+import com.example.fauricio.proyecto_1_moviles.Modelo.item;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ import java.util.ArrayList;
  */
 public class ChoferFragment extends Fragment {
     private View rootview;
-    private FloatingActionButton nuevo_chofer;
     private ListView choferes;
     private listChoferAdapter adapter;
     private ArrayList<item> ArrayItem = null;
@@ -38,16 +36,8 @@ public class ChoferFragment extends Fragment {
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_chofer,container,false);
         choferes = rootview.findViewById(R.id.LV_choferes);
-        nuevo_chofer = rootview.findViewById(R.id.FB_agregar);
-        ArrayItem = new ArrayList<>();
 
-        nuevo_chofer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(),agregar_choferActivity.class);
-                startActivity(intent);
-            }
-        });
+        ArrayItem = new ArrayList<>();
 
         choferes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

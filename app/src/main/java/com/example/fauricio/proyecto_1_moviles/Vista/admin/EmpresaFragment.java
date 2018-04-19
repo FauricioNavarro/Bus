@@ -31,7 +31,7 @@ public class EmpresaFragment extends Fragment {
     private ListView empresas;
     private listEmpresaAdapter adapter;
     private ArrayList<Empresa> ArrayItem = null;
-
+    private SharedPreferences sharedPreferences;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +56,7 @@ public class EmpresaFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Empresa temp = ArrayItem.get(i);
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(rootView.getContext());
+                sharedPreferences = PreferenceManager.getDefaultSharedPreferences(rootView.getContext());
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt("id_empresa",temp.getID_empresa());
                 editor.commit();
@@ -94,10 +94,5 @@ public class EmpresaFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        /*
-        for(int i = 0 ; i<12;i++){
-            String msj = "Empresa"+String.valueOf(i);
-            ArrayItem.add(new Empresa(i,msj,"Descripción"));
-        }*/
     }
 }
