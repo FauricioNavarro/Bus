@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listEmpresaAdapter;
@@ -53,8 +54,10 @@ public class EmpresaFragment extends Fragment {
         empresas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(),detalle_empresa.class);
-                startActivity(intent);
+                Empresa temp = ArrayItem.get(i);
+                Toast.makeText(getContext(),temp.toString(),Toast.LENGTH_LONG).show();
+                //Intent intent = new Intent(getContext(),detalle_empresa.class);
+                //startActivity(intent);
             }
         });
         cargarLista(rootView.getContext());

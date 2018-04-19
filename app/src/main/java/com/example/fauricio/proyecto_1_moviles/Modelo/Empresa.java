@@ -42,5 +42,12 @@ public class Empresa {
         this.descripcion = descripcion;
     }
 
-
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "ID_empresa=" + ID_empresa +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                '}';
+    }
 }

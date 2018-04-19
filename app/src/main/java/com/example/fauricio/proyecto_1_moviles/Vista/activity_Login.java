@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,6 +12,8 @@ import com.example.fauricio.proyecto_1_moviles.Controlador.DAO_api;
 import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
 import com.example.fauricio.proyecto_1_moviles.R;
 import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
+import com.example.fauricio.proyecto_1_moviles.Vista.chofer.Main_chofer;
+import com.example.fauricio.proyecto_1_moviles.Vista.cliente.Main_cliente;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -73,11 +74,26 @@ public class activity_Login extends AppCompatActivity {
     }
 
     public void login(View view){
+        Intent intent;
         String user = usuario.getText().toString();
         String pass = contraseña.getText().toString();
-        gestor.getInstance().login(user,pass);
+        int login_auth = gestor.getInstance().login(user,pass);
+        if(login_auth!=0){
+            if(login_auth==1){
+                intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }else{
+                if(login_auth==2){
+                    intent = new Intent(getApplicationContext(),Main_chofer.class);
+                    startActivity(intent);
+                }else{
+                    intent = new Intent(getApplicationContext(),Main_cliente.class);
+                    startActivity(intent);
+                }
+            }
+        }
         /*
-        Intent intent;
+
         if(user.equals("")){
             intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
