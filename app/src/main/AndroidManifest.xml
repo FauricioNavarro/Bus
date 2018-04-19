@@ -95,7 +95,7 @@
         <activity
             android:name=".Vista.cliente.Main_cliente"
             android:label="@string/title_activity_main_cliente" />
-        <activity android:name=".Vista.acesso_ubicacion" />
+        <activity android:name=".Vista.acceso_ubicacion" />
 
         <service android:name=".Vista.chofer.GPS_Service" />
 

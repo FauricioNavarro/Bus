@@ -14,6 +14,10 @@ import com.example.fauricio.proyecto_1_moviles.Controlador.listRutaAdapter;
 import com.example.fauricio.proyecto_1_moviles.Modelo.Ruta;
 import com.example.fauricio.proyecto_1_moviles.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Main_chofer extends AppCompatActivity {
@@ -41,11 +45,17 @@ public class Main_chofer extends AppCompatActivity {
     }
 
     public void cargarLista(Context context){
-        for(int i = 0 ; i<12;i++){
-            String msj = "Ruta"+String.valueOf(i);
-            ArrayItem.add(new Ruta(i,msj,"Lugar Inicial"," <-> Lugar Final",1));
+        try {
+            JSONObject obj = gestor.getInstance().getLista_ruta();
+            JSONArray json_rutas = obj.getJSONArray("objects");
+            for(int i=0;i<json_rutas.length();i++){
+                JSONObject object = (JSONObject) json_rutas.getJSONObject(i);
+                ArrayItem.add(new Ruta(object.getInt("id"),object.getString("nombre"),object.getString("inicio"),object.getString("final"), (float) object.getDouble("costo")));
+                adapter = new listRutaAdapter(ArrayItem, context);
+                rutas.setAdapter(adapter);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        adapter = new listRutaAdapter(ArrayItem, context);
-        rutas.setAdapter(adapter);
     }
 }

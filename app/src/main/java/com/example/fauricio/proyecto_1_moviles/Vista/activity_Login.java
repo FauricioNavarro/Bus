@@ -1,6 +1,7 @@
 package com.example.fauricio.proyecto_1_moviles.Vista;
 
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class activity_Login extends AppCompatActivity {
     private EditText usuario,contraseña;
     private GoogleApiClient googleApiClient;
     public static final int CODIGO_SIGN_IN = 777;
+    public LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,12 +86,26 @@ public class activity_Login extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                 }else{
+                    locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
                     if(login_auth==2){
-                        intent = new Intent(getApplicationContext(),Main_chofer.class);
-                        startActivity(intent);
+                        if(!locationManager.isProviderEnabled(locationManager.GPS_PROVIDER)){
+                            Toast.makeText(getApplicationContext(),"GPS apagado",Toast.LENGTH_LONG).show();
+                            intent = new Intent(getApplicationContext(),acceso_ubicacion.class);
+                            startActivity(intent);
+                        }else{
+                            intent = new Intent(getApplicationContext(),Main_chofer.class);
+                            startActivity(intent);
+                        }
+
                     }else{
-                        intent = new Intent(getApplicationContext(),Main_cliente.class);
-                        startActivity(intent);
+                        if(!locationManager.isProviderEnabled(locationManager.GPS_PROVIDER)){
+                            Toast.makeText(getApplicationContext(),"GPS apagado",Toast.LENGTH_LONG).show();
+                            intent = new Intent(getApplicationContext(),acceso_ubicacion.class);
+                            startActivity(intent);
+                        }else{
+                            intent = new Intent(getApplicationContext(),Main_cliente.class);
+                            startActivity(intent);
+                        }
                     }
                 }
             }else{
