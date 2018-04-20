@@ -6,39 +6,39 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
-public class DAO_api_usuarios extends AsyncTask<String,Void,String> {
-    private String url = "https://bus-api-moviles.herokuapp.com/api/users/";
+public class DAO_api_chofer extends AsyncTask<String,Void,String> {
+    private String url = "https://bus-api-moviles.herokuapp.com/api/driver/";
 
     @Override
     protected String doInBackground(String... params) {
         String tipoEjecucion = params[0];
-        String output=null;
+        String output = null;
         switch (tipoEjecucion){
             case "get":{
                 try {
-                    HttpResponse<String> response = Unirest.get("https://bus-api-moviles.herokuapp.com/api/users/")
+                    HttpResponse<String> response = Unirest.get(url)
                             .header("content-type", "application/json")
                             .header("cache-control", "no-cache")
-                            .header("postman-token", "537f36a9-1d68-6dc0-91b4-cd573c5f1acf")
+                            .header("postman-token", "118aeee3-f682-cdaa-003b-6578c589e67c")
                             .asString();
-                    output = response.getBody().toString();
+                    output = response.toString();
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
             }break;
-            case "get_user":{
+            case "get_driver":{
                 try {
-                    HttpResponse<String> response = Unirest.get(url+params[1])
+                    HttpResponse<String> response = Unirest.get(url+params[1]+"/")
                             .header("content-type", "application/json")
                             .header("cache-control", "no-cache")
-                            .header("postman-token", "aa85e34c-3547-9bbe-a715-5719a5372370")
+                            .header("postman-token", "118aeee3-f682-cdaa-003b-6578c589e67c")
                             .asString();
-                    output = response.getBody().toString();
+                    output = response.toString();
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
             }break;
         }
-        return  output;
+        return output;
     }
 }

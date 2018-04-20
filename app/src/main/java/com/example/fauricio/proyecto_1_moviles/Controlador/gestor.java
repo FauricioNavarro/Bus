@@ -2,6 +2,7 @@ package com.example.fauricio.proyecto_1_moviles.Controlador;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,7 +28,7 @@ public class gestor {
             lista_ruta = new JSONObject(request_ruta);
             String request_parada = new DAO_api_parada().execute("get").get();
             lista_parada = new JSONObject(request_parada);
-            users = new DAO_api_usuarios().execute().get();
+            users = new DAO_api_usuarios().execute("get").get();
             //lista_user = new JSONObject(request_user);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -106,6 +107,45 @@ public class gestor {
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
+
+    // ========================= User ===================================
+    public String get_chofer_id(String id){
+        DAO_api_usuarios e = new DAO_api_usuarios();
+        String out=null;
+        try {
+            String request = e.execute("get").get();
+            JSONArray json_rutas = new JSONArray(request);
+            for(int i=0;i<json_rutas.length();i++){
+                JSONObject object = (JSONObject) json_rutas.getJSONObject(i);
+                if(object.getString("id").equals(id)){
+                    out = object.getString("chofer");
+                }
+            }
+            out =  request;
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        } catch (ExecutionException e1) {
+            e1.printStackTrace();
+        } catch (JSONException e1) {
+            e1.printStackTrace();
+        }
+        return out;
+    }
+    // ========================= Driver ===================================
+    public String get_driver(String id){
+        DAO_api_chofer e = new DAO_api_chofer();
+        String out=null;
+        try {
+            String request = e.execute("get_driver",id).get();
+            out =  request;
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        } catch (ExecutionException e1) {
+            e1.printStackTrace();
+        }
+        return out;
+    }
+
 
     // ========================= Empresa ==================================
 
