@@ -53,4 +53,13 @@
         android:textAlignment="center"
         android:hint="Longitud"/>
 
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="10dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver en mapa"
+        android:onClick="mapa"/>
+
 </LinearLayout>

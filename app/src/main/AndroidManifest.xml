@@ -3,9 +3,9 @@
     package="com.example.fauricio.proyecto_1_moviles">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -43,8 +43,8 @@
         <activity
             android:name=".Vista.admin.agregar_choferActivity"
             android:label="@string/title_add_chofer"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Vista.admin.MainActivity">
+            android:parentActivityName=".Vista.admin.MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Vista.admin.MainActivity" />
@@ -60,35 +60,31 @@
         <activity
             android:name=".Vista.admin.agregar_empresa"
             android:label="@string/title_add_empresa"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Vista.admin.MainActivity">
+            android:parentActivityName=".Vista.admin.MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Vista.admin.MainActivity" />
         </activity>
-
         <activity
             android:name=".Vista.admin.detalle_empresa"
             android:parentActivityName=".Vista.admin.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
         <activity
             android:name=".Vista.admin.detalle_ruta"
             android:parentActivityName=".Vista.admin.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
         <activity
             android:name=".Vista.admin.agregar_ruta"
             android:label="@string/title_add_ruta"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Vista.admin.MainActivity">
+            android:parentActivityName=".Vista.admin.MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Vista.admin.MainActivity" />
         </activity>
-
         <activity
             android:name=".Vista.admin.agregar_parada"
             android:label="@string/title_add_parada"
@@ -102,12 +98,14 @@
         <activity
             android:name=".Vista.cliente.Main_cliente"
             android:label="@string/title_activity_main_cliente" />
-        <activity android:name=".Vista.acesso_ubicacion"></activity>
-        <service android:name=".Vista.chofer.GPS_Service"/>
+        <activity android:name=".Vista.acesso_ubicacion" />
+
+        <service android:name=".Vista.chofer.GPS_Service" />
 
         <activity android:name=".Vista.cliente.detalle_empresa_user" />
         <activity android:name=".Vista.cliente.detalle_ruta_user" />
-        <activity android:name=".Vista.cliente.detalle_parada_user"></activity>
+        <activity android:name=".Vista.cliente.detalle_parada_user" />
+        <activity android:name=".Vista.cliente.lista_rutas_empresa"></activity>
     </application>
 
 </manifest>

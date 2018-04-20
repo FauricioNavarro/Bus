@@ -2,16 +2,21 @@ package com.example.fauricio.proyecto_1_moviles.Vista.cliente;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
+import com.example.fauricio.proyecto_1_moviles.Vista.cliente.dibujar_ruta.DrawRouteMaps;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,13 +28,15 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import com.example.fauricio.proyecto_1_moviles.Vista.cliente.dibujar_ruta.DrawRouteMaps;
 
 
 
@@ -42,6 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LatLng Ubicacion_Cliente;
     private Marker markerCliente;
     private Marker markerBus;
+    private int id_ruta_user;
 
 
     ArrayList<Double[]> puntosRuta = new ArrayList<>(
@@ -71,6 +79,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         r = new Random();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        id_ruta_user = sharedPreferences.getInt("id_ruta_user",0);
+        String ruta = Controlador.getInstance().get_ruta(String.valueOf(id_ruta_user));
+        try {
+            JSONObject r = new JSONObject(ruta);
+            JSONArray paradas = r.getJSONArray("paradas");
+            Log.i("Paradas aca",paradas.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

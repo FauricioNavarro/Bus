@@ -32,4 +32,5 @@
         android:hint="Longitud"
         android:textAlignment="center"/>
 
+
 </LinearLayout>
