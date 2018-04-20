@@ -78,7 +78,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         try {
             JSONObject r = new JSONObject(ruta);
             JSONArray paradas = r.getJSONArray("paradas");
-            System.out.println(ruta.toString());
             for(int i =0; i<paradas.length();i++){
                 JSONObject parada = paradas.getJSONObject(i);
                 paradas_ruta.add(new LatLng(parada.getDouble("latitud"), parada.getDouble("longitud")));

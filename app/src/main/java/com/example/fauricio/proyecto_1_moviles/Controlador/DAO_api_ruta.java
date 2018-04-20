@@ -83,8 +83,8 @@ public class DAO_api_ruta extends AsyncTask<String,Void,String> {
                     try {
                         ruta.put("nombre", params[2]);
                         ruta.put("costo", params[3]);
-                        ruta.put("final", params[4]);
-                        ruta.put("inicio", params[5]);
+                        ruta.put("latitud_final", params[4]);
+                        ruta.put("longitud_final", params[5]);
                         ruta.put("latitud", params[6]);
                         ruta.put("longitud", params[7]);
                         ruta.put("paradas", params[8]);

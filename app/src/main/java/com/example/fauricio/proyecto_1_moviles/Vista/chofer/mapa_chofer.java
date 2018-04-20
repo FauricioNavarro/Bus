@@ -31,6 +31,8 @@ public class mapa_chofer extends AppCompatActivity {
     private BroadcastReceiver broadcastReceiver;
     private int id_ruta;
     private JSONObject ruta;
+    private Double latObjetivo;
+    private Double lonObjetivo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class mapa_chofer extends AppCompatActivity {
         String ruta_aux = Controlador.getInstance().get_ruta(String.valueOf(id_ruta));
         try {
             ruta = new JSONObject(ruta_aux);
+            latObjetivo = ruta.getDouble("latitud_final");
+            lonObjetivo = ruta.getDouble("longitud_final");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -59,7 +63,7 @@ public class mapa_chofer extends AppCompatActivity {
         btn_empezar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent direcciones = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/dir/?api=1&destination=9.961372,-84.048901"));
+                Intent direcciones = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/dir/?api=1&destination="+String.valueOf(latObjetivo)+","+String.valueOf(lonObjetivo)));
                 Intent service = new Intent(getApplicationContext(), GPS_Service.class);
                 startService(service);
                 startActivity(direcciones);
