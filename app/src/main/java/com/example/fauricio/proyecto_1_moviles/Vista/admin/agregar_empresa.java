@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 public class agregar_empresa extends AppCompatActivity {
@@ -24,10 +24,10 @@ public class agregar_empresa extends AppCompatActivity {
         String des_aux = des.getText().toString();
 
         if(!nomb_aux.equals("") && !des_aux.equals("")){
-            String result = gestor.getInstance().registrar_empresa(nomb_aux,des_aux);
+            String result = Controlador.getInstance().registrar_empresa(nomb_aux,des_aux);
             if(result=="1"){
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
-                gestor.getInstance().actualizar_empresa();
+                Controlador.getInstance().actualizar_empresa();
                 Limpiar();
             }else{
                 Toast.makeText(getApplicationContext(),"Error al realizar registro", Toast.LENGTH_LONG).show();

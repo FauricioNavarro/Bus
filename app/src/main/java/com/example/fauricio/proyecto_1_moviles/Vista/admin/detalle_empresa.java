@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 import org.json.JSONException;
@@ -31,7 +31,7 @@ public class detalle_empresa extends AppCompatActivity {
         nombre = findViewById(R.id.et_nombre_empresa);
         descripcion = findViewById(R.id.et_detalle_empresa);
         id = sharedPreferences.getInt("id_empresa",0);
-        String empresa = gestor.getInstance().get_empresa(String.valueOf(id));
+        String empresa = Controlador.getInstance().get_empresa(String.valueOf(id));
         Log.i("empresa",empresa);
         try {
             JSONObject json_empresa = new JSONObject(empresa);
@@ -63,15 +63,15 @@ public class detalle_empresa extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.editar:
                 //Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
-                gestor.getInstance().put_empresa(nombre.getText().toString(),descripcion.getText().toString(),String.valueOf(id));
-                gestor.getInstance().actualizar_empresa();
+                Controlador.getInstance().put_empresa(nombre.getText().toString(),descripcion.getText().toString(),String.valueOf(id));
+                Controlador.getInstance().actualizar_empresa();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.eliminar:
                 //Toast.makeText(getApplicationContext(), "ELIMINAR", Toast.LENGTH_SHORT).show();
-                String request = gestor.getInstance().delete_empresa(String.valueOf(id));
-                gestor.getInstance().actualizar_empresa();
+                String request = Controlador.getInstance().delete_empresa(String.valueOf(id));
+                Controlador.getInstance().actualizar_empresa();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;

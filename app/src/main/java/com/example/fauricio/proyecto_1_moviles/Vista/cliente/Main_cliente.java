@@ -100,7 +100,7 @@ public class Main_cliente extends AppCompatActivity {
             GoogleSignInAccount account = result.getSignInAccount();
             try {
                 String response = new DAO_api().execute("GOOGLogin",account.getEmail(),"m5p9Neh+k2At!ZZRuD2YYCLs&@@47?wNq48jZ-GCc+x!%WVSHY^Z^e6rgdXL8pnxTH9D-PUu%99xqYB2!L*H",account.getGivenName(),account.getFamilyName()).get();
-                //gestor.getInstance().usuario = response;
+                //Controlador.getInstance().usuario = response;
 
             } catch (InterruptedException e) {
                 e.printStackTrace();

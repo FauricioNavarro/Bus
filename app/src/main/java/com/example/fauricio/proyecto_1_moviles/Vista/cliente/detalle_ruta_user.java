@@ -6,7 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 import org.json.JSONException;
@@ -28,7 +28,7 @@ public class detalle_ruta_user extends AppCompatActivity {
         longitud = findViewById(R.id.txt_longitud_rt);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         id_ruta_user = sharedPreferences.getInt("id_ruta_user",0);
-        String ruta_user = gestor.getInstance().get_ruta(String.valueOf(id_ruta_user));
+        String ruta_user = Controlador.getInstance().get_ruta(String.valueOf(id_ruta_user));
         //Toast.makeText(getApplicationContext(),ruta_user,Toast.LENGTH_LONG).show();
         try {
             JSONObject json_ruta = new JSONObject(ruta_user);

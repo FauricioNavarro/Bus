@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listChoferAdapter;
 import com.example.fauricio.proyecto_1_moviles.Modelo.item;
 import com.example.fauricio.proyecto_1_moviles.R;
@@ -67,7 +67,7 @@ public class ChoferFragment extends Fragment {
 
     public void cargarLista(Context context){
 
-        String obj = gestor.getInstance().getUsers();
+        String obj = Controlador.getInstance().getUsers();
         try {
             JSONArray json_rutas = new JSONArray(obj);
             for(int i=0;i<json_rutas.length();i++){

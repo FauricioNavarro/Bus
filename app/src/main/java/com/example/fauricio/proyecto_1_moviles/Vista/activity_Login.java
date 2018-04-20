@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
 import com.example.fauricio.proyecto_1_moviles.Vista.chofer.Main_chofer;
@@ -63,7 +63,7 @@ public class activity_Login extends AppCompatActivity {
         String user = usuario.getText().toString();
         String pass = contraseña.getText().toString();
         if(!user.equals("") && !pass.equals("")){
-            int login_auth = gestor.getInstance().login(user,pass);
+            int login_auth = Controlador.getInstance().login(user,pass);
             if(login_auth!=0){
                 if(login_auth==1){
                     intent = new Intent(getApplicationContext(),MainActivity.class);

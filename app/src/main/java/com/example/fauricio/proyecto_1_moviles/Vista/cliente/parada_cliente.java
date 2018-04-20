@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listParadaAdapter;
 import com.example.fauricio.proyecto_1_moviles.Modelo.Parada;
 import com.example.fauricio.proyecto_1_moviles.R;
@@ -70,7 +70,7 @@ public class parada_cliente extends Fragment {
 
     public void cargarLista(Context context){
         try {
-            JSONObject obj = gestor.getInstance().getLista_parada();
+            JSONObject obj = Controlador.getInstance().getLista_parada();
             JSONArray json_paradas = obj.getJSONArray("objects");
             for(int i=0;i<json_paradas.length();i++){
                 JSONObject object = (JSONObject) json_paradas.getJSONObject(i);

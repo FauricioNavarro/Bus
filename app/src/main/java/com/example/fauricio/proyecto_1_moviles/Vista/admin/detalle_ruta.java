@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 import org.json.JSONException;
@@ -37,7 +37,7 @@ public class detalle_ruta extends AppCompatActivity {
         longitud = findViewById(R.id.et_longitud_rt);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         id_ruta = sharedPreferences.getInt("id_ruta",0);
-        String ruta = gestor.getInstance().get_ruta(String.valueOf(id_ruta));
+        String ruta = Controlador.getInstance().get_ruta(String.valueOf(id_ruta));
         try {
             JSONObject json_ruta = new JSONObject(ruta);
             nombre.setText(json_ruta.getString("nombre"));
@@ -69,15 +69,15 @@ public class detalle_ruta extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.editar:
                 //Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
-                gestor.getInstance().put_ruta(String.valueOf(id_ruta),nombre.getText().toString(),costo.getText().toString(),inicio.getText().toString(),fin.getText().toString(),latitud.getText().toString(),longitud.getText().toString());
-                gestor.getInstance().actualizar_ruta();
+                Controlador.getInstance().put_ruta(String.valueOf(id_ruta),nombre.getText().toString(),costo.getText().toString(),inicio.getText().toString(),fin.getText().toString(),latitud.getText().toString(),longitud.getText().toString());
+                Controlador.getInstance().actualizar_ruta();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.eliminar:
                 //Toast.makeText(getApplicationContext(), "ELIMINAR", Toast.LENGTH_SHORT).show();
-                String request = gestor.getInstance().delete_ruta(String.valueOf(id_ruta));
-                gestor.getInstance().actualizar_ruta();
+                String request = Controlador.getInstance().delete_ruta(String.valueOf(id_ruta));
+                Controlador.getInstance().actualizar_ruta();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;

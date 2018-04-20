@@ -6,7 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 import org.json.JSONException;
@@ -25,7 +25,7 @@ public class detalle_parada_user extends AppCompatActivity {
         longitud = findViewById(R.id.txt_longitud);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         id_parada_user = sharedPreferences.getInt("id_parada_user",0);
-        String parada = gestor.getInstance().get_parada(String.valueOf(id_parada_user));
+        String parada = Controlador.getInstance().get_parada(String.valueOf(id_parada_user));
         try {
             JSONObject json_parada = new JSONObject(parada);
             nombre.setText("Nombre: "+json_parada.getString("nombre"));

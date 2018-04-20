@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 public class agregar_ruta extends AppCompatActivity {
@@ -32,9 +32,9 @@ public class agregar_ruta extends AppCompatActivity {
         String lat = latitud.getText().toString();
         String lon = longitud.getText().toString();
         if(!nombre_aux.equals("") && !inicio_aux.equals("") && !fin_aux.equals("") && !costo_aux.equals("") && !lat.equals("") && !lon.equals("")){
-            String request = gestor.getInstance().registrar_ruta(nombre_aux,inicio_aux,fin_aux,lat,lon,costo_aux);
+            String request = Controlador.getInstance().registrar_ruta(nombre_aux,inicio_aux,fin_aux,lat,lon,costo_aux);
             if(!request.equals(null)){
-                gestor.getInstance().actualizar_ruta();
+                Controlador.getInstance().actualizar_ruta();
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
                 Limpiar();
             }else {

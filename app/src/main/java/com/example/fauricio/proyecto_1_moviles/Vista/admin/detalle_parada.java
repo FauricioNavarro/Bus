@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 import org.json.JSONException;
@@ -35,7 +35,7 @@ public class detalle_parada extends AppCompatActivity {
         longitud = findViewById(R.id.et_longitud);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         id_parada = sharedPreferences.getInt("id_parada",0);
-        String parada = gestor.getInstance().get_parada(String.valueOf(id_parada));
+        String parada = Controlador.getInstance().get_parada(String.valueOf(id_parada));
         try {
             JSONObject json_parada = new JSONObject(parada);
             nombre.setText(json_parada.getString("nombre"));
@@ -63,15 +63,15 @@ public class detalle_parada extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.editar:
                 //Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
-                gestor.getInstance().put_parada(String.valueOf(id_parada),nombre.getText().toString(),latitud.getText().toString(),longitud.getText().toString());
-                gestor.getInstance().actualizar_parada();
+                Controlador.getInstance().put_parada(String.valueOf(id_parada),nombre.getText().toString(),latitud.getText().toString(),longitud.getText().toString());
+                Controlador.getInstance().actualizar_parada();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.eliminar:
                 //Toast.makeText(getApplicationContext(), "ELIMINAR", Toast.LENGTH_SHORT).show();
-                String request = gestor.getInstance().delete_parada(String.valueOf(id_parada));
-                gestor.getInstance().actualizar_parada();
+                String request = Controlador.getInstance().delete_parada(String.valueOf(id_parada));
+                Controlador.getInstance().actualizar_parada();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 return true;

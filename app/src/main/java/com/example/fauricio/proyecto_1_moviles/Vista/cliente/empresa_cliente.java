@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listEmpresaAdapter;
 import com.example.fauricio.proyecto_1_moviles.Modelo.Empresa;
 import com.example.fauricio.proyecto_1_moviles.R;
@@ -71,7 +71,7 @@ public class empresa_cliente extends Fragment {
 
     public void cargarLista(Context context){
         try {
-            JSONObject obj = gestor.getInstance().getLista_empresa();
+            JSONObject obj = Controlador.getInstance().getLista_empresa();
             JSONArray json_empresas = obj.getJSONArray("objects");
             for(int i=0;i<json_empresas.length();i++){
                 JSONObject object = (JSONObject) json_empresas.getJSONObject(i);

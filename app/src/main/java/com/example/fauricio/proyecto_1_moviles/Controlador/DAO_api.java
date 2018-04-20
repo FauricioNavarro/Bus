@@ -65,7 +65,7 @@ public class DAO_api extends AsyncTask<String, Void, String> {
                     JSONObject json2 = new JSONObject(response1.getBody().toString());
                     //GUARDAR ESTE ID EN SHARED PREFFERENCES
                     int ID = json2.getInt("id");
-                    gestor.getInstance().setId_user(ID);
+                    Controlador.getInstance().setId_user(ID);
                     HttpResponse<String> finalresponse = Unirest.get("https://bus-api-moviles.herokuapp.com/api/users/"+String.valueOf(ID)+"/")
                             .header("cache-control", "no-cache")
                             .header("postman-token", "a9e5810d-45c1-4089-3bc0-c77e699d58dc")

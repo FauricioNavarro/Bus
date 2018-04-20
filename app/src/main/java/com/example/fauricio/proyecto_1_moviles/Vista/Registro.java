@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 public class Registro extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class Registro extends AppCompatActivity {
         String nomb_aux = nombre.getText().toString();
         String apellido_aux = apellido.getText().toString();
         if(!user_aux.equals("") && !pass_aux.equals("") && !nomb_aux.equals("") && !apellido_aux.equals("")){
-            String result = gestor.getInstance().registrar(user_aux,pass_aux,nomb_aux,apellido_aux);
+            String result = Controlador.getInstance().registrar(user_aux,pass_aux,nomb_aux,apellido_aux);
             if(result.equals("1")){
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
                 Limpiar();

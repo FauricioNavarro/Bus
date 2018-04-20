@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
 public class agregar_parada extends AppCompatActivity {
@@ -26,9 +26,9 @@ public class agregar_parada extends AppCompatActivity {
         String lat_aux = lat.getText().toString();
         String lon_aux = lon.getText().toString();
         if(!nombre_aux.equals("") && !lat_aux.equals("") && !lon_aux.equals("")){
-            String request = gestor.getInstance().registrar_parada(nombre_aux,lat_aux,lon_aux);
+            String request = Controlador.getInstance().registrar_parada(nombre_aux,lat_aux,lon_aux);
             if(!request.equals(null)){
-                gestor.getInstance().actualizar_parada();
+                Controlador.getInstance().actualizar_parada();
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
                 Limpiar();
             }else {

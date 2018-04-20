@@ -6,7 +6,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
-public class DAO_api_usuarios extends AsyncTask<String,Void,String> {
+public class DAO_api_user extends AsyncTask<String,Void,String> {
     private String url = "https://bus-api-moviles.herokuapp.com/api/users/";
 
     @Override
@@ -28,7 +28,7 @@ public class DAO_api_usuarios extends AsyncTask<String,Void,String> {
             }break;
             case "get_user":{
                 try {
-                    HttpResponse<String> response = Unirest.get(url+params[1])
+                    HttpResponse<String> response = Unirest.get(url+params[1]+"/")
                             .header("content-type", "application/json")
                             .header("cache-control", "no-cache")
                             .header("postman-token", "aa85e34c-3547-9bbe-a715-5719a5372370")

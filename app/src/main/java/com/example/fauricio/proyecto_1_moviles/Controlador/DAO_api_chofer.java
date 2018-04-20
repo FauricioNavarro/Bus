@@ -21,7 +21,7 @@ public class DAO_api_chofer extends AsyncTask<String,Void,String> {
                             .header("cache-control", "no-cache")
                             .header("postman-token", "118aeee3-f682-cdaa-003b-6578c589e67c")
                             .asString();
-                    output = response.toString();
+                    output = response.getBody().toString();
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }
@@ -33,7 +33,7 @@ public class DAO_api_chofer extends AsyncTask<String,Void,String> {
                             .header("cache-control", "no-cache")
                             .header("postman-token", "118aeee3-f682-cdaa-003b-6578c589e67c")
                             .asString();
-                    output = response.toString();
+                    output = response.getBody().toString();
                 } catch (UnirestException e) {
                     e.printStackTrace();
                 }

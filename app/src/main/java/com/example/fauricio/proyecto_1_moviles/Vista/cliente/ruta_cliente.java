@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.fauricio.proyecto_1_moviles.Controlador.gestor;
+import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.Controlador.listRutaAdapter;
 import com.example.fauricio.proyecto_1_moviles.Modelo.Ruta;
 import com.example.fauricio.proyecto_1_moviles.R;
@@ -74,7 +74,7 @@ public class ruta_cliente extends Fragment {
 
     public void cargarLista(Context context){
         try {
-            JSONObject obj = gestor.getInstance().getLista_ruta();
+            JSONObject obj = Controlador.getInstance().getLista_ruta();
             JSONArray json_rutas = obj.getJSONArray("objects");
             for(int i=0;i<json_rutas.length();i++){
                 JSONObject object = (JSONObject) json_rutas.getJSONObject(i);

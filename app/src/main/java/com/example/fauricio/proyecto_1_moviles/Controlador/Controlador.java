@@ -2,25 +2,24 @@ package com.example.fauricio.proyecto_1_moviles.Controlador;
 
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
-public class gestor {
-    private static final gestor ourInstance = new gestor();
+public class Controlador {
+    private static final Controlador ourInstance = new Controlador();
     private JSONObject lista_empresa;
     private JSONObject lista_ruta;
     private JSONObject lista_parada;
     private String users;
     private int id_user;
 
-    public static gestor getInstance() {
+    public static Controlador getInstance() {
         return ourInstance;
     }
 
-    private gestor() {
+    private Controlador() {
         try {
             String request_empresa = new DAO_api_empresa().execute("get").get();
             lista_empresa = new JSONObject(request_empresa);
@@ -28,7 +27,7 @@ public class gestor {
             lista_ruta = new JSONObject(request_ruta);
             String request_parada = new DAO_api_parada().execute("get").get();
             lista_parada = new JSONObject(request_parada);
-            users = new DAO_api_usuarios().execute("get").get();
+            users = new DAO_api_user().execute("get").get();
             //lista_user = new JSONObject(request_user);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -110,23 +109,14 @@ public class gestor {
 
     // ========================= User ===================================
     public String get_chofer_id(String id){
-        DAO_api_usuarios e = new DAO_api_usuarios();
+        DAO_api_user e = new DAO_api_user();
         String out=null;
         try {
-            String request = e.execute("get").get();
-            JSONArray json_rutas = new JSONArray(request);
-            for(int i=0;i<json_rutas.length();i++){
-                JSONObject object = (JSONObject) json_rutas.getJSONObject(i);
-                if(object.getString("id").equals(id)){
-                    out = object.getString("chofer");
-                }
-            }
+            String request = e.execute("get_user",id).get();
             out =  request;
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         } catch (ExecutionException e1) {
-            e1.printStackTrace();
-        } catch (JSONException e1) {
             e1.printStackTrace();
         }
         return out;
