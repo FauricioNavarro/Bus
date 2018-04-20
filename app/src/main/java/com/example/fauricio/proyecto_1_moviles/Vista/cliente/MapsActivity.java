@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
@@ -46,12 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Marker markerCliente;
     private Marker markerBus;
     private int id_ruta_user;
-
-
-    ArrayList<Double[]> puntosRuta = new ArrayList<>(
-            Arrays.asList(new Double[]{9.977357, -84.012290},new Double[]{9.968604, -84.033895},
-                    new Double[]{9.945525, -84.055682},new Double[]{9.940985, -84.065143},
-                    new Double[]{9.935122, -84.070505},new Double[]{9.935630, -84.077004}));
+    private ArrayList<LatLng> paradas_ruta;
 
 
     @Override
@@ -78,10 +74,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         id_ruta_user = sharedPreferences.getInt("id_ruta_user",0);
         String ruta = Controlador.getInstance().get_ruta(String.valueOf(id_ruta_user));
+        paradas_ruta  = new ArrayList<>();
         try {
             JSONObject r = new JSONObject(ruta);
             JSONArray paradas = r.getJSONArray("paradas");
-            Log.i("Paradas aca",paradas.toString());
+            System.out.println(ruta.toString());
+            for(int i =0; i<paradas.length();i++){
+                JSONObject parada = paradas.getJSONObject(i);
+                paradas_ruta.add(new LatLng(parada.getDouble("latitud"), parada.getDouble("longitud")));
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -134,19 +135,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void actualizar_mapa() {
 
-        final ArrayList<LatLng> ruta = new ArrayList<>();
-        ruta.add(new LatLng(9.980794, -84.023045));
-        ruta.add(new LatLng(9.977357, -84.012290));
-        ruta.add(new LatLng(9.968604, -84.033895));
-        ruta.add(new LatLng(9.945525, -84.055682));
-        ruta.add(new LatLng(9.940985, -84.065143));
-        ruta.add(new LatLng(9.935122, -84.070505));
-        ruta.add(new LatLng(9.935630, -84.077004));
-        ruta.add(new LatLng(9.935622, -84.076650));
-
-
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for(LatLng parada : ruta){
+        System.out.println(paradas_ruta);
+        for(LatLng parada : paradas_ruta){
             builder.include(parada);
         }
         LatLngBounds bounds = builder.build();
@@ -159,11 +150,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap.animateCamera(cu);
 
-        for(int i = 0; i<ruta.size()-2; i++){
-            DrawRouteMaps.getInstance(MapsActivity.this).draw(ruta.get(i),ruta.get(i+1), mMap);
-            mMap.addMarker(new MarkerOptions().position(ruta.get(i)).icon(BitmapDescriptorFactory.fromResource(R.drawable.stop3)));
+        for(int i = 0; i<paradas_ruta.size()-1; i++){
+            DrawRouteMaps.getInstance(MapsActivity.this).draw(paradas_ruta.get(i),paradas_ruta.get(i+1), mMap);
+            mMap.addMarker(new MarkerOptions().position(paradas_ruta.get(i)).icon(BitmapDescriptorFactory.fromResource(R.drawable.stop3)));
         }
-        mMap.addMarker(new MarkerOptions().position(ruta.get(ruta.size()-1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.stop3)));
+        mMap.addMarker(new MarkerOptions().position(paradas_ruta.get(paradas_ruta.size()-1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.stop3)));
 
         markerCliente = mMap.addMarker(new MarkerOptions().position(Ubicacion_Cliente).icon(BitmapDescriptorFactory.fromResource(R.drawable.ubicacion)));
         markerBus = mMap.addMarker(new MarkerOptions().position(getBusLocation()).icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
@@ -190,9 +181,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public LatLng getBusLocation() {
         //AQUI VA EL REQUEST DE LA UBICACION DEL BUS
-
-        Double[] escogido = puntosRuta.get(r.nextInt(puntosRuta.size()));
-
-        return new LatLng(escogido[0],escogido[1]);
+        LatLng location = null;
+        String ruta = Controlador.getInstance().get_ruta(String.valueOf(id_ruta_user));
+        try {
+            JSONObject r = new JSONObject(ruta);
+            Double lat = r.getDouble("latitud");
+            Double lon = r.getDouble("longitud");
+            location = new LatLng(lat,lon);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return location;
     }
 }

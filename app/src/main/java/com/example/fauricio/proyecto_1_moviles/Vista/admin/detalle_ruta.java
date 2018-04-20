@@ -14,6 +14,7 @@ import android.widget.EditText;
 import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,6 +22,7 @@ public class detalle_ruta extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private EditText nombre,inicio,fin,costo,latitud,longitud;
     private int id_ruta;
+    private JSONArray paradas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class detalle_ruta extends AppCompatActivity {
         costo = findViewById(R.id.et_costo_rt);
         latitud = findViewById(R.id.et_latitud_rt);
         longitud = findViewById(R.id.et_longitud_rt);
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         id_ruta = sharedPreferences.getInt("id_ruta",0);
         String ruta = Controlador.getInstance().get_ruta(String.valueOf(id_ruta));
@@ -46,6 +49,7 @@ public class detalle_ruta extends AppCompatActivity {
             costo.setText(json_ruta.getString("costo"));
             latitud.setText(json_ruta.getString("latitud"));
             longitud.setText(json_ruta.getString("longitud"));
+            paradas =json_ruta.getJSONArray("paradas");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -69,7 +73,7 @@ public class detalle_ruta extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.editar:
                 //Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
-                Controlador.getInstance().put_ruta(String.valueOf(id_ruta),nombre.getText().toString(),costo.getText().toString(),inicio.getText().toString(),fin.getText().toString(),latitud.getText().toString(),longitud.getText().toString());
+                Controlador.getInstance().put_ruta(String.valueOf(id_ruta),nombre.getText().toString(),costo.getText().toString(),inicio.getText().toString(),fin.getText().toString(),latitud.getText().toString(),longitud.getText().toString(),paradas);
                 Controlador.getInstance().actualizar_ruta();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);

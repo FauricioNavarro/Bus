@@ -125,7 +125,7 @@ public class mapa_chofer extends AppCompatActivity {
         try {
             Controlador.getInstance().put_ruta(String.valueOf(id_ruta),
                     ruta.getString("nombre"),ruta.getString("costo"),ruta.getString("latitud_final"),
-                    ruta.getString("longitud_final"),String.valueOf(lat),String.valueOf(lon));
+                    ruta.getString("longitud_final"),String.valueOf(lat),String.valueOf(lon), ruta.getJSONArray("paradas"));
         } catch (JSONException e) {
             e.printStackTrace();
         }

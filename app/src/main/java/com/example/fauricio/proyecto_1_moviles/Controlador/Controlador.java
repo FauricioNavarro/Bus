@@ -2,6 +2,7 @@ package com.example.fauricio.proyecto_1_moviles.Controlador;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -255,9 +256,9 @@ public class Controlador {
         return "";
     }
 
-    public String put_ruta(String id,String nombre,String costo,String incio,String fin,String latitud,String longitud){
+    public String put_ruta(String id, String nombre, String costo, String incio, String fin, String latitud, String longitud, JSONArray paradas){
         try {
-            String result = new DAO_api_ruta().execute("put",id,nombre,costo,incio,fin,latitud,longitud).get();
+            String result = new DAO_api_ruta().execute("put",id,nombre,costo,incio,fin,latitud,longitud,paradas.toString()).get();
             return result;
         } catch (InterruptedException e) {
             e.printStackTrace();
