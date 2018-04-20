@@ -85,12 +85,17 @@ public class RutaFragment extends Fragment {
             JSONArray json_rutas = obj.getJSONArray("objects");
             for(int i=0;i<json_rutas.length();i++){
                 JSONObject object = (JSONObject) json_rutas.getJSONObject(i);
-                ArrayItem.add(new Ruta(object.getInt("id"),object.getString("nombre"),object.getString("inicio"),object.getString("final"), (float) object.getDouble("costo")));
+                ArrayItem.add(new Ruta(object.getInt("id"),
+                        object.getString("nombre"),
+                        object.getString("latitud_final"),
+                        object.getString("longitud_final"),
+                        (float) object.getDouble("costo")));
                 adapter = new listRutaAdapter(ArrayItem, context);
                 rutas.setAdapter(adapter);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
     }
 }

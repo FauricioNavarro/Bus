@@ -53,7 +53,7 @@ public class ruta_cliente extends Fragment {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt("id_ruta_user",temp.getID_ruta());
                 editor.commit();
-                Intent intent = new Intent(getContext(),detalle_ruta_user.class);
+                Intent intent = new Intent(getContext(),lista_rutas_empresa.class);
                 startActivity(intent);
             }
         });
