@@ -35,8 +35,8 @@ public class detalle_ruta_user extends AppCompatActivity {
         try {
             JSONObject json_ruta = new JSONObject(ruta_user);
             nombre.setText("Nombre: "+json_ruta.getString("nombre"));
-            inicio.setText("Lugar inicial: "+json_ruta.getString("inicio"));
-            fin.setText("Destino: "+json_ruta.getString("final"));
+            inicio.setText("Lugar inicial: "+json_ruta.getString("latitud_final"));
+            fin.setText("Destino: "+json_ruta.getString("longitud_final"));
             costo.setText("Costo: "+json_ruta.getString("costo"));
             latitud.setText("Latitud: "+json_ruta.getString("latitud"));
             longitud.setText("Longitud: "+json_ruta.getString("longitud"));

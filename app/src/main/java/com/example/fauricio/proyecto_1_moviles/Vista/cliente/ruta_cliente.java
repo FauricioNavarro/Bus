@@ -53,7 +53,7 @@ public class ruta_cliente extends Fragment {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt("id_ruta_user",temp.getID_ruta());
                 editor.commit();
-                Intent intent = new Intent(getContext(),lista_rutas_empresa.class);
+                Intent intent = new Intent(getContext(),detalle_ruta_user.class);
                 startActivity(intent);
             }
         });
@@ -78,7 +78,11 @@ public class ruta_cliente extends Fragment {
             JSONArray json_rutas = obj.getJSONArray("objects");
             for(int i=0;i<json_rutas.length();i++){
                 JSONObject object = (JSONObject) json_rutas.getJSONObject(i);
-                ArrayItem.add(new Ruta(object.getInt("id"),object.getString("nombre"),object.getString("inicio"),object.getString("final"), (float) object.getDouble("costo")));
+                ArrayItem.add(new Ruta(object.getInt("id"),
+                        object.getString("nombre"),
+                        object.getString("latitud_final"),
+                        object.getString("longitud_final"),
+                        (float) object.getDouble("costo")));
                 adapter = new listRutaAdapter(ArrayItem, context);
                 rutas.setAdapter(adapter);
             }

@@ -110,7 +110,7 @@ public class Main_cliente extends AppCompatActivity {
         }else{
             Intent intent = new Intent(this, activity_Login.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            //startActivity(intent);
         }
     }
 

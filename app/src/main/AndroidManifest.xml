@@ -40,15 +40,6 @@
             android:parentActivityName=".Vista.admin.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".Vista.admin.agregar_choferActivity"
-            android:label="@string/title_add_chofer"
-            android:parentActivityName=".Vista.admin.MainActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Vista.admin.MainActivity" />
-        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
@@ -98,14 +89,16 @@
         <activity
             android:name=".Vista.cliente.Main_cliente"
             android:label="@string/title_activity_main_cliente" />
-        <activity android:name=".Vista.acesso_ubicacion" />
 
         <service android:name=".Vista.chofer.GPS_Service" />
 
         <activity android:name=".Vista.cliente.detalle_empresa_user" />
         <activity android:name=".Vista.cliente.detalle_ruta_user" />
         <activity android:name=".Vista.cliente.detalle_parada_user" />
-        <activity android:name=".Vista.cliente.lista_rutas_empresa"></activity>
+        <activity android:name=".Vista.cliente.lista_rutas_empresa" />
+        <activity
+            android:name=".Vista.cliente.MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

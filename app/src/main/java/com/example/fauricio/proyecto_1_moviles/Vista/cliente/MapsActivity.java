@@ -1,6 +1,5 @@
 package com.example.fauricio.proyecto_1_moviles.Vista.cliente;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -38,10 +37,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
     private GoogleMap mMap;
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -66,7 +62,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 2, locationListener);
                 }
             }
@@ -123,8 +119,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         };
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION }, 0);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{ android.Manifest.permission.ACCESS_FINE_LOCATION }, 0);
         }
         else {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 2, locationListener);
@@ -176,7 +172,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                if (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(MapsActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -200,4 +196,3 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return new LatLng(escogido[0],escogido[1]);
     }
 }
-
