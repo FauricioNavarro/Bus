@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
@@ -31,6 +32,9 @@ public class detalle_ruta extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_ruta);
         toolbar.setTitle(R.string.txt_detalle_ruta);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlanco));
+        ActionBar ab = getSupportActionBar();
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
         nombre = findViewById(R.id.et_nombre_rt);
         inicio = findViewById(R.id.et_inicio_rt);
         fin = findViewById(R.id.et_final_rt);

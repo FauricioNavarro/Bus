@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
@@ -30,6 +31,9 @@ public class detalle_parada extends AppCompatActivity {
         toolbar.setTitle(R.string.txt_detalle_parada);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlanco));
         setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
         nombre = findViewById(R.id.et_nombre);
         latitud = findViewById(R.id.et_latitud);
         longitud = findViewById(R.id.et_longitud);

@@ -3,6 +3,7 @@ package com.example.fauricio.proyecto_1_moviles.Vista.admin;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -23,11 +24,14 @@ public class detalle_chofer extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_chofer);
         toolbar.setTitle(R.string.txt_detalle_chofer);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorBlanco));
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
         nombre = findViewById(R.id.txt_nombre);
         apellido = findViewById(R.id.txt_apellido);
         placa = findViewById(R.id.txt_placa);
         rating = findViewById(R.id.txt_rating);
-        setSupportActionBar(toolbar);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String id = sharedPreferences.getString("id_chofer_aux","");
         String nombre_aux = sharedPreferences.getString("nombre_chofer","");
