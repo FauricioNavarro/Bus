@@ -15,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "178308542744-5f9tve08mi4i27poqp2moe1k6r3hkicr.apps.googleusercontent.com",
+          "client_id": "923298303737-vfv0rjj7m3lc73ec1570ht7t57hjbofp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.fauricio.proyecto_1_moviles",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "178308542744-n74p9r07erj5oca7pvg61ng8d7p8q6vi.apps.googleusercontent.com",
+          "client_id": "923298303737-vfv0rjj7m3lc73ec1570ht7t57hjbofp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCZn8gZ2ZzMk5kW7BOt7aNOqj2RxZUNzig"
+          "current_key": "AIzaSyAISCLu7A4LToVXwvRiD7I8HyF4jIjQ9sA"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "178308542744-n74p9r07erj5oca7pvg61ng8d7p8q6vi.apps.googleusercontent.com",
+              "client_id": "923298303737-vfv0rjj7m3lc73ec1570ht7t57hjbofp.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

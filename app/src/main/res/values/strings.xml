@@ -75,4 +75,8 @@
     <string name="title_activity_agregar_ruta">agregar_ruta</string>
     <string name="title_activity_main_cliente">Main_cliente</string>
     <string name="title_activity_maps">Map</string>
+    <string name="correo">Correo</string>
+
+    <string name="facebook_app_id">2095173280694056</string>
+    <string name="fb_login_protocol_scheme">fb2095173280694056</string>
 </resources>
