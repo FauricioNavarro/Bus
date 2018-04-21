@@ -2,7 +2,9 @@ package com.example.fauricio.proyecto_1_moviles.Vista.admin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,7 @@ public class ChoferFragment extends Fragment {
     private ListView choferes;
     private listChoferAdapter adapter;
     private ArrayList<item> ArrayItem = null;
+    private SharedPreferences sharedPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,13 @@ public class ChoferFragment extends Fragment {
         choferes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                item user = ArrayItem.get(i);
+                sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("id_chofer_aux",user.getTitulo());
+                editor.putString("nombre_chofer",user.getContenido1());
+                editor.putString("apellido_chofer",user.getGetContenido2());
+                editor.commit();
                 Intent intent = new Intent(getContext(),detalle_chofer.class);
                 startActivity(intent);
             }
@@ -72,8 +82,6 @@ public class ChoferFragment extends Fragment {
             JSONArray json_rutas = new JSONArray(obj);
             for(int i=0;i<json_rutas.length();i++){
                 JSONObject object = (JSONObject) json_rutas.getJSONObject(i);
-                android.util.Log.d("CHOFER FLAG",object.getString("chofer"));
-
                 if(!object.getString("chofer").equals("null")){
                     ArrayItem.add(new item(object.getString("id"),object.getString("first_name"),object.getString("last_name")));
                 }

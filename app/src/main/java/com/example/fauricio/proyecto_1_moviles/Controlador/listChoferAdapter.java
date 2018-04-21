@@ -49,11 +49,9 @@ public class listChoferAdapter extends BaseAdapter {
         ImageView iv_imagen = (ImageView) vistaItem.findViewById(R.id.iv_imagen);
         TextView tv_titulo = (TextView) vistaItem.findViewById(R.id.tv_titulo);
         TextView tv_contenido_1 = (TextView) vistaItem.findViewById(R.id.tv_contenido);
-        TextView tv_contenido_2 = (TextView) vistaItem.findViewById(R.id.tv_contenido1);
         iv_imagen.setImageResource(R.drawable.driver_icon);
-        tv_titulo.setText(arrayItems.get(i).getTitulo());
-        tv_contenido_1.setText(arrayItems.get(i).getContenido1());
-        tv_contenido_2.setText(arrayItems.get(i).getGetContenido2());
+        tv_titulo.setText(arrayItems.get(i).getContenido1());
+        tv_contenido_1.setText(arrayItems.get(i).getGetContenido2());
 
         return vistaItem;
     }}

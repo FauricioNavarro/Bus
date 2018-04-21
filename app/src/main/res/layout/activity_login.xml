@@ -56,16 +56,6 @@
         android:text="@string/btn_crear_cuenta"
         android:onClick="registro"/>
 
-    <Button
-        android:id="@+id/bt_consultaContraseña"
-        style="@style/AppTheme"
-        android:layout_width="match_parent"
-        android:background="@android:color/transparent"
-        android:layout_height="30dp"
-        android:textSize="14sp"
-        android:text="@string/btn_olvide_cont"
-        android:onClick="consulta_contraseña"/>
-
     <Space
         android:layout_width="1dp"
         android:layout_height="10dp" />

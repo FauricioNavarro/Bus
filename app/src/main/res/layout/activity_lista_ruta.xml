@@ -38,7 +38,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_contenido"
             android:layout_below="@+id/tv_titulo"
-            android:text="Contenido"/>
+            android:text="Contenido"
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,14 +47,16 @@
             android:id="@+id/tv_contenido1"
             android:text="Contenido"
             android:layout_below="@+id/tv_titulo"
-            android:layout_toRightOf="@id/tv_contenido"/>
+            android:layout_toRightOf="@id/tv_contenido"
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_costo"
             android:layout_below="@+id/tv_contenido"
-            android:text="@string/txt_costo_aux" />
+            android:text="@string/txt_costo_aux"
+            android:textColor="@android:color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,7 +64,8 @@
             android:id="@+id/tv_contenido2"
             android:layout_toRightOf="@id/tv_costo"
             android:layout_below="@+id/tv_contenido"
-            android:text=" Contenido"/>
+            android:text=" Contenido"
+            android:textColor="@android:color/black"/>
 
     </RelativeLayout>
 

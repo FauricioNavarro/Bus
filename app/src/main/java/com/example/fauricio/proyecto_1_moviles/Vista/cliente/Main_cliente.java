@@ -44,9 +44,6 @@ public class Main_cliente extends AppCompatActivity {
                 case R.id.navigation_rutas_cliente:
                     transaction.replace(R.id.frame_contenedor_cliente,new ruta_cliente()).commit();
                     return true;
-                case R.id.navigation_paradas_cliente:
-                    transaction.replace(R.id.frame_contenedor_cliente,new parada_cliente()).commit();
-                    return true;
             }
             return false;
         }

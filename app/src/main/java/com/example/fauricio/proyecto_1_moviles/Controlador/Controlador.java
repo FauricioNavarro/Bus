@@ -152,9 +152,9 @@ public class Controlador {
         return null;
     }
 
-    public String put_empresa(String nombre,String descripcion,String id){
+    public String put_empresa(String nombre,String descripcion,String id,JSONArray paradas){
         try {
-            String result = new DAO_api_empresa().execute("put",id,nombre,descripcion).get();
+            String result = new DAO_api_empresa().execute("put",id,nombre,descripcion,paradas.toString()).get();
             return result;
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -268,7 +268,7 @@ public class Controlador {
         return null;
     }
 
-    // ========================= Rutas ==================================
+    // ========================= Paradas ==================================
 
     public void actualizar_parada(){
         try {

@@ -4,18 +4,12 @@ package com.example.fauricio.proyecto_1_moviles.Modelo;
  * Created by fauricio on 29/03/18.
  */
 
-public class Cliente extends Usuario {
+public class Cliente {
     private int Imagen;
 
-    public Cliente(int ID_usuario, String nombre, Nivel_usuario nivel, int imagen) {
-        super(ID_usuario, nombre, nivel);
+    public Cliente(int ID_usuario, String nombre, int imagen) {
         Imagen = imagen;
     }
-
-    public Cliente(int ID_usuario, String nombre, Nivel_usuario nivel) {
-        super(ID_usuario, nombre, nivel);
-    }
-
     public int getImagen() {
         return Imagen;
     }

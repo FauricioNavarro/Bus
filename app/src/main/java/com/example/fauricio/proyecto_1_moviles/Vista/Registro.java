@@ -1,5 +1,6 @@
 package com.example.fauricio.proyecto_1_moviles.Vista;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,8 +30,8 @@ public class Registro extends AppCompatActivity {
         if(!user_aux.equals("") && !pass_aux.equals("") && !nomb_aux.equals("") && !apellido_aux.equals("")){
             String result = Controlador.getInstance().registrar(user_aux,pass_aux,nomb_aux,apellido_aux);
             if(result.equals("1")){
-                Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
                 Limpiar();
+                startActivity(new Intent(getApplicationContext(),activity_Login.class));
             }else{
                 Toast.makeText(getApplicationContext(),"Error al realizar registro", Toast.LENGTH_LONG).show();
                 Limpiar();

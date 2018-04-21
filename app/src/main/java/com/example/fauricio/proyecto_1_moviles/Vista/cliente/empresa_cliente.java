@@ -52,7 +52,7 @@ public class empresa_cliente extends Fragment {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt("id_empresa_user",temp.getID_empresa());
                 editor.commit();
-                Intent intent = new Intent(getContext(),detalle_empresa_user.class);
+                Intent intent = new Intent(getContext(),lista_rutas_empresa.class);
                 startActivity(intent);
             }
         });

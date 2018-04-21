@@ -15,6 +15,7 @@ import android.widget.EditText;
 import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +23,7 @@ public class detalle_empresa extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private int id;
     private EditText nombre,descripcion;
-
+    private JSONArray choferes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class detalle_empresa extends AppCompatActivity {
             JSONObject json_empresa = new JSONObject(empresa);
             nombre.setText(json_empresa.getString("nombre"));
             descripcion.setText(json_empresa.getString("descripcion"));
+            choferes = json_empresa.getJSONArray("choferes");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -63,7 +65,8 @@ public class detalle_empresa extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.editar:
                 //Toast.makeText(getApplicationContext(), "EDITAR_", Toast.LENGTH_SHORT).show();
-                Controlador.getInstance().put_empresa(nombre.getText().toString(),descripcion.getText().toString(),String.valueOf(id));
+                Controlador.getInstance().put_empresa(nombre.getText().toString(),
+                        descripcion.getText().toString(),String.valueOf(id),choferes);
                 Controlador.getInstance().actualizar_empresa();
                 intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);

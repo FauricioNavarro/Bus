@@ -80,6 +80,7 @@ public class DAO_api_empresa extends AsyncTask<String, Void, String> {
                     try {
                         empresa.put("nombre", params[2]);
                         empresa.put("descripcion", params[3]);
+                        empresa.put("choferes", params[4]);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

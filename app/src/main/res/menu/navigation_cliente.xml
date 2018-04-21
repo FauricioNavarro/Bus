@@ -10,8 +10,4 @@
         android:icon="@drawable/rutas"
         android:title="@string/txt_rutas"/>
 
-    <item
-        android:id="@+id/navigation_paradas_cliente"
-        android:icon="@drawable/parada"
-        android:title="@string/txt_paradas"/>
 </menu>
