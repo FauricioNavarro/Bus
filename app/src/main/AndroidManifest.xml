@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
 
     <application
         android:allowBackup="true"
@@ -99,6 +100,9 @@
         <activity
             android:name=".Vista.cliente.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="0411189fa242a1ff83ff057c6bf8b83a9f943921" />
     </application>
 
 </manifest>

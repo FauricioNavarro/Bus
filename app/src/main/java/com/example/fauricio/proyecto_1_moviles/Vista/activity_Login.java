@@ -1,13 +1,17 @@
 package com.example.fauricio.proyecto_1_moviles.Vista;
 
 import android.content.Intent;
+import android.media.midi.MidiDevice;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.ndk.CrashlyticsNdk;
 import com.example.fauricio.proyecto_1_moviles.Controlador.Controlador;
 import com.example.fauricio.proyecto_1_moviles.R;
 import com.example.fauricio.proyecto_1_moviles.Vista.admin.MainActivity;
@@ -20,14 +24,23 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import com.mixpanel.android.mpmetrics.MixpanelAPI;
+
+import io.fabric.sdk.android.Fabric;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
 public class activity_Login extends AppCompatActivity {
     private EditText usuario,contraseña;
     private GoogleApiClient googleApiClient;
     public static final int CODIGO_SIGN_IN = 777;
+    private MixpanelAPI mixpanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics(), new CrashlyticsNdk());
         setContentView(R.layout.activity_login);
 
         usuario = findViewById(R.id.et_username_login);
@@ -54,8 +67,17 @@ public class activity_Login extends AppCompatActivity {
             }
         });
 
+        String projectToken = "1e3cae6b552813d8ab09fb98f6dccce2";
+        mixpanel = MixpanelAPI.getInstance(this, projectToken);
 
-
+        try{
+            JSONObject props = new JSONObject();
+            props.put("Gender", "Female");
+            props.put("Logged in", false);
+            mixpanel.track("Se prendió la aplicacion", props);
+        } catch (JSONException e) {
+            Log.e("MYAPP", "Unable to add properties to JSONObject");
+        }
     }
 
     public void login(View view){
@@ -130,4 +152,10 @@ public class activity_Login extends AppCompatActivity {
         contraseña.setText("");
     }
 
+
+//    @Override
+//    protected void onDestroy() {
+//        mixpanel.flush();
+//        super.onDestroy();
+//    }
 }
